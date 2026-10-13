@@ -1,0 +1,163 @@
+body {
+  margin: 0;
+  background-color: var(--primary-color);
+  color: #fff;
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 18px;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+a {
+  text-decoration: none;
+  color: #fff;
+}
+
+main {
+  max-width: var(--content-width);
+  margin-inline: auto;
+}
+
+/* Hintergrund läuft über die Contentbegrenzung hinaus bis zum Viewport-Rand */
+.navigation,
+.tabcontent {
+  box-shadow: 0 0 0 100vmax var(--bleed-color);
+  clip-path: inset(0 -100vmax);
+}
+
+.navigation {
+  --bleed-color: var(--secondary-color);
+}
+
+.tabcontent {
+  --bleed-color: var(--light-color);
+}
+
+.flex {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+.flex-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.hero {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  text-align: center;
+  height: calc(100svh - var(--nav-height));
+  margin: 0;
+}
+
+.hero-image {
+  max-width: 500px;
+  padding: 0 40px;
+  background-image: url("../assets/img/shape.svg");
+  background-position: top center;
+  background-repeat: no-repeat;
+  background-size: 500px;
+  transition: background-image 0.4s ease-in-out;
+}
+
+.hero-image:hover {
+  background-image: url("../assets/img/shape_hover.svg");
+}
+
+.hero_text {
+  align-self: center;
+}
+
+section {
+  margin: 80px;
+  scroll-margin-top: var(--nav-height);
+}
+
+h1 {
+  font-family: "Anta", sans-serif;
+  font-size: 88px;
+  margin: 0;
+}
+
+h2 {
+  color: var(--secondary-color);
+  text-align: center;
+  font-weight: 400;
+  font-size: 40px;
+}
+
+.subtitle {
+  font-size: 24px;
+  text-transform: uppercase;
+}
+
+.navigation {
+  background-color: var(--secondary-color);
+  width: 100%;
+  color: var(--primary-color);
+  display: flex;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  box-sizing: border-box;
+  height: var(--nav-height);
+  padding: 0px 60px;
+}
+
+.navigation ul {
+  list-style: none;
+  display: flex;
+
+  gap: 30px;
+}
+
+.navigation ul li a {
+  color: var(--primary-color);
+  text-decoration: none;
+}
+
+.navigation ul li a:hover {
+  color: #fff;
+  text-decoration: none;
+}
+
+.section-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  padding: 40px;
+}
+
+.why-text {
+  width: 30%;
+}
+
+.location {
+  display: flex;
+  gap: 10px;
+}
+
+.location span {
+  color: var(--secondary-color);
+}
+
+.policy {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.policy p {
+  margin: 0;
+}
