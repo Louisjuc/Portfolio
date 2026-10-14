@@ -3,7 +3,21 @@ body {
   background-color: var(--primary-color);
   color: #fff;
   font-family: "Josefin Sans", sans-serif;
+  line-height: 1.3em;
   font-size: 18px;
+}
+
+h1,
+h2,
+h3 {
+  font-family: "Anta", sans-serif;
+}
+
+button,
+input,
+textarea,
+select {
+  font-family: inherit;
 }
 
 html {
@@ -15,19 +29,27 @@ a {
   color: #fff;
 }
 
-main {
+a:hover {
+  cursor: pointer;
+  color: var(--secondary-color);
+}
+
+main,
+footer {
   max-width: var(--content-width);
   margin-inline: auto;
 }
 
 /* Hintergrund läuft über die Contentbegrenzung hinaus bis zum Viewport-Rand */
 .navigation,
-.tabcontent {
+.tabcontent,
+footer {
   box-shadow: 0 0 0 100vmax var(--bleed-color);
   clip-path: inset(0 -100vmax);
 }
 
-.navigation {
+.navigation,
+footer {
   --bleed-color: var(--secondary-color);
 }
 
@@ -40,8 +62,8 @@ main {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 20px;
 }
+
 .flex-row {
   display: flex;
   flex-direction: row;
@@ -75,6 +97,15 @@ main {
 
 .hero_text {
   align-self: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 60px;
+}
+
+.logo {
+  width: 60px;
 }
 
 section {
@@ -83,9 +114,8 @@ section {
 }
 
 h1 {
-  font-family: "Anta", sans-serif;
   font-size: 88px;
-  margin: 0;
+  margin-bottom: 50px;
 }
 
 h2 {
@@ -112,6 +142,7 @@ h2 {
   box-sizing: border-box;
   height: var(--nav-height);
   padding: 0px 60px;
+  justify-content: space-between;
 }
 
 .navigation ul {
@@ -140,15 +171,17 @@ h2 {
 }
 
 .why-text {
-  width: 30%;
+  width: 60%;
 }
 
-.location {
+.info {
   display: flex;
+  flex-direction: row;
+  align-items: center;
   gap: 10px;
 }
 
-.location span {
+.info span {
   color: var(--secondary-color);
 }
 
@@ -160,4 +193,28 @@ h2 {
 
 .policy p {
   margin: 0;
+}
+
+.learning {
+  background-image: url("../assets/img/learning.svg");
+  text-align: center;
+  background-repeat: no-repeat;
+  background-position: top center;
+  width: fit-content;
+  height: 500px;
+  padding: 80px 200px;
+  background-size: 500px;
+}
+
+#skills .section-wrapper {
+  align-items: flex-start;
+}
+
+footer {
+  background-color: var(--secondary-color);
+  padding: 20px 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--primary-color);
 }

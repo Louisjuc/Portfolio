@@ -14,8 +14,11 @@
       <section id="hero" class="hero">
         <img src="./assets/img/lj.png" alt="Louis Juchem" class="hero-image" />
         <div class="hero_text">
-          <h1>Louis Juchem</h1>
-          <p class="subtitle">Frontend Developer</p>
+          <img src="./assets/img/logo.svg" class="logo" />
+          <div>
+            <h1>Louis Juchem</h1>
+            <p class="subtitle">Frontend Developer</p>
+          </div>
           <a href="#why"
             ><button class="btn-down">
               <img
@@ -26,28 +29,61 @@
         </div>
       </section>
       <nav class="navigation">
-        <div><p>Logo</p></div>
+        <div><img src="./assets/img/logo_dark.svg" class="logo" /></div>
         <ul>
           <li><a href="#why">Why me</a></li>
           <li><a href="#skills"> Skills</a></li>
           <li><a href="#projects">Projects</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
+        <div>
+          <p>DE EN</p>
+        </div>
       </nav>
       <section id="why">
         <h2>Why me?</h2>
         <div class="section-wrapper">
-          <div class="location">
-            <img src="./assets/icons/location.svg" class="icon" />
-            <p><span>I am</span> located in Munich..|</p>
+          <div>
+            <p class="info">
+              <img src="./assets/icons/location.svg" class="icon" /><span
+                >I am</span
+              >
+              located in Munich.
+            </p>
+            <p class="info">
+              <img src="./assets/img/remote.svg" class="icon" /><span
+                >I am</span
+              >
+              open to work remote.
+            </p>
           </div>
+
           <div class="why-text">
             <p>
-              Why are you passionate about coding? You can include some key
-              traits like: analytical thinking, creativity, persistence and
-              collaboration. A problem-solving mindset is always nice to have.
+              My background as a media designer taught me to think in layouts,
+              typography and visual hierarchy. My work as a frontend developer
+              lets me bring those ideas to life in code.
             </p>
-            <button class="btn-classic">Lets Talk</button>
+            <p>
+              Over several years in a recruitment marketing agency, I designed
+              and built print and online job ads, responsive HTML templates and
+              social media banners, including accessible templates that met
+              strict technical requirements. Working closely with client
+              services under tight deadlines taught me to stay structured,
+              reliable and detail-oriented.
+            </p>
+
+            <p>
+              Today, I combine this experience with a strong focus on frontend
+              development, building responsive, component-based web applications
+              with clean, maintainable code. The result: interfaces that are not
+              only technically solid, but also visually consistent and easy to
+              use, because I know what designers intend and what developers
+              need.
+            </p>
+            <a href="#contact"
+              ><button class="btn-classic">Lets Talk</button></a
+            >
           </div>
         </div>
       </section>
@@ -96,8 +132,18 @@
               <p>Scrum</p>
             </div>
           </div>
-          <div>
+          <div class="learning">
             <p>I am currently learning</p>
+            <div class="flex">
+              <img src="./assets/icons/Vue Js.svg" alt="Vue.js" />
+              <p>Vue.js</p>
+            </div>
+            <p>
+              Out of personal interest, I’m currently diving into Vue.js to
+              expand my skill set. Its lightweight, component-based approach
+              makes it a great complement to my Angular experience and a popular
+              choice for projects of any size.
+            </p>
           </div>
         </div>
       </section>
@@ -105,13 +151,13 @@
         <h2>My Projects</h2>
         <!-- Tab links -->
         <div class="tab">
-          <button class="tablinks active" data-city="London">Join</button>
-          <button class="tablinks" data-city="Paris">Sharkie</button>
-          <button class="tablinks" data-city="Tokyo">Pokedex</button>
+          <button class="tablinks active" data-project="Join">Join</button>
+          <button class="tablinks" data-project="Sharkie">Sharkie</button>
+          <button class="tablinks" data-project="PollApp">PollApp</button>
         </div>
 
         <!-- Tab content -->
-        <div id="London" class="tabcontent active">
+        <div id="Join" class="tabcontent active">
           <div>
             <ul>
               <li class="li-description">About the Project</li>
@@ -152,18 +198,88 @@
           </div>
         </div>
 
-        <div id="Paris" class="tabcontent">
-          <ul>
-            <li class="li-description">About the Project</li>
-            <li>Listenpunkt</li>
-          </ul>
+        <div id="Sharkie" class="tabcontent">
+          <div>
+            <ul>
+              <li class="li-description">About the Project</li>
+              <li>
+                A simple Jump-and-Run game based on an object-oriented approach.
+                Help sharkie to find coins and poison battles to fight against
+                the killer whale,
+              </li>
+            </ul>
+            <ul>
+              <li class="li-description">
+                How I have organised my work process
+              </li>
+              <li>
+                Task manager inspired by the Kanban System. Create and organize
+                tasks using drag and drop functions, assign users and categories
+              </li>
+            </ul>
+            <ul>
+              <li class="li-description">My group work experience</li>
+              <li>
+                Task manager inspired by the Kanban System. Create and organize
+                tasks using drag and drop functions, assign users and categories
+              </li>
+            </ul>
+          </div>
+          <div class="flex">
+            <div class="techstack">
+              <p>Technologies</p>
+              <img src="./assets/icons/html.svg" />
+              <img src="./assets/icons/css.svg" />
+              <img src="./assets/icons/Javascript.svg" />
+            </div>
+            <img src="./assets/img/platzhalter.jpg" class="screenshot" />
+            <div class="button-group">
+              <button class="btn-live">Live Test</button>
+              <button class="btn-classic">Github</button>
+            </div>
+          </div>
         </div>
 
-        <div id="Tokyo" class="tabcontent">
-          <ul>
-            <li class="li-description">About the Project</li>
-            <li>Listenpunkt</li>
-          </ul>
+        <div id="PollApp" class="tabcontent">
+          <div>
+            <ul>
+              <li class="li-description">About the Project</li>
+              <li>
+                A simple Jump-and-Run game based on an object-oriented approach.
+                Help sharkie to find coins and poison battles to fight against
+                the killer whale,
+              </li>
+            </ul>
+            <ul>
+              <li class="li-description">
+                How I have organised my work process
+              </li>
+              <li>
+                Task manager inspired by the Kanban System. Create and organize
+                tasks using drag and drop functions, assign users and categories
+              </li>
+            </ul>
+            <ul>
+              <li class="li-description">My group work experience</li>
+              <li>
+                Task manager inspired by the Kanban System. Create and organize
+                tasks using drag and drop functions, assign users and categories
+              </li>
+            </ul>
+          </div>
+          <div class="flex">
+            <div class="techstack">
+              <p>Technologies</p>
+              <img src="./assets/icons/Angular.svg" />
+              <img src="./assets/icons/Icons.svg" />
+              <img src="./assets/icons/css.svg" />
+            </div>
+            <img src="./assets/img/platzhalter.jpg" class="screenshot" />
+            <div class="button-group">
+              <button class="btn-live">Live Test</button>
+              <button class="btn-classic">Github</button>
+            </div>
+          </div>
         </div>
       </section>
       <section id="reviews">
@@ -206,7 +322,7 @@
             >louis.juchem@web.de</a
           >
         </p>
-        <p>Tel: 0000000</p>
+        <p>Tel: +49 00000</p>
 
         <form class="form__mail">
           <label>
@@ -233,5 +349,20 @@
         <button type="submit" class="btn-classic">Send</button>
       </section>
     </main>
+    <footer>
+      <div>
+        <p>Legal notice</p>
+        <p>© Louis Juchem 2026</p>
+      </div>
+      <img src="./assets/img/logo_dark.svg" class="logo" />
+      <div>
+        <a href="https://github.com/Louisjuc" target="_blank">
+          <img src="./assets/img/github_footer.svg" class="icon"
+        /></a>
+        <a href="mailto:louis.juchem@web.de" target="_blank">
+          <img src="./assets/img/email_footer.svg" class="icon"
+        /></a>
+      </div>
+    </footer>
   </body>
 </html>

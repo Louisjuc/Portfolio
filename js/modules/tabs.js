@@ -1,6 +1,6 @@
 export function initTabs() {
   document.querySelectorAll(".tablinks").forEach((btn) => {
-    btn.addEventListener("click", (evt) => openCity(evt, btn.dataset.city));
+    btn.addEventListener("click", (evt) => openCity(evt, btn.dataset.project));
   });
 }
 
