@@ -11,6 +11,15 @@ h1,
 h2,
 h3 {
   font-family: "Anta", sans-serif;
+  line-height: 1.1em;
+}
+
+.m-0 {
+  margin: 0;
+}
+
+.burger-menu {
+  display: none;
 }
 
 button,
@@ -18,6 +27,10 @@ input,
 textarea,
 select {
   font-family: inherit;
+}
+
+.screenshot {
+  margin: 20px 0;
 }
 
 html {
@@ -79,6 +92,7 @@ footer {
   text-align: center;
   height: calc(100svh - var(--nav-height));
   margin: 0;
+  overflow: hidden;
 }
 
 .hero-image {
@@ -95,13 +109,17 @@ footer {
   background-image: url("../assets/img/shape_hover.svg");
 }
 
+.hero-image_mobile {
+  display: none;
+}
+
 .hero_text {
   align-self: center;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 60px;
+  gap: 20px;
 }
 
 .logo {
@@ -115,7 +133,7 @@ section {
 
 h1 {
   font-size: 88px;
-  margin-bottom: 50px;
+  margin: 0px;
 }
 
 h2 {
@@ -206,6 +224,22 @@ h2 {
   background-size: 500px;
 }
 
+.contact-flex {
+  display: flex;
+  gap: 32px;
+}
+
+.contact-flex > * {
+  flex: 1;
+  min-width: 0;
+}
+
+.text-icon-flex {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
 #skills .section-wrapper {
   align-items: flex-start;
 }
@@ -217,4 +251,146 @@ footer {
   justify-content: space-between;
   align-items: center;
   color: var(--primary-color);
+}
+
+footer a {
+  color: var(--primary-color);
+}
+footer a:hover {
+  color: #fff;
+}
+
+@media (max-width: 1200px) {
+}
+
+@media (max-width: 900px) {
+  section {
+    margin: 60px 40px;
+  }
+}
+
+@media (max-width: 500px) {
+  /* Navigation steht im HTML nach dem Hero – auf Mobile per order nach oben holen */
+  main {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    padding-bottom: 40px;
+  }
+
+  .navigation {
+    order: -1;
+  }
+
+  /* Im Flex-Container kollabieren Margins nicht, Abstand kommt über gap */
+  section {
+    margin: 0 16px;
+  }
+
+  .section-wrapper {
+    flex-direction: column-reverse;
+    padding: 0;
+  }
+
+  .why-text {
+    width: inherit;
+  }
+
+  .hero {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: inherit;
+    margin: 0;
+    overflow: hidden;
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .learning {
+    background-image: none;
+    text-align: center;
+    background-repeat: no-repeat;
+    background-position: top center;
+    width: inherit;
+    height: auto;
+    padding: 0px;
+    background-size: 500px;
+  }
+
+  #skills .section-wrapper {
+    flex-direction: column;
+    padding: 0;
+    align-items: center;
+  }
+
+  .tabcontent.active {
+    gap: 40px;
+    flex-direction: column;
+  }
+
+  .flex-row,
+  .info,
+  .policy,
+  .contact-flex,
+  .text-icon-flex {
+    flex-direction: column;
+  }
+
+  /* Verhindert seitliches Scrollen durch das ausgeblendete Menü (clip statt hidden, damit die sticky Nav weiter funktioniert) */
+  body {
+    overflow-x: clip;
+  }
+
+  /* Bleed-Trick nur auf breiten Screens nötig – clip-path würde sonst das aufklappende Menü abschneiden */
+  .navigation {
+    box-shadow: none;
+    clip-path: none;
+  }
+
+  .navigation {
+    flex-direction: row;
+    background: var(--primary-color);
+    height: auto;
+    padding: 16px 20px;
+    gap: 16px;
+  }
+
+  .navigation ul {
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    padding: 0;
+  }
+
+  footer {
+    flex-direction: column;
+    gap: 16px;
+    padding: 20px;
+    text-align: center;
+  }
+
+  .hero-image {
+    display: none;
+  }
+  .hero-image_mobile {
+    display: block;
+    width: 350px;
+  }
+
+  .burger-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    cursor: pointer;
+  }
+
+  .burger-menu span {
+    width: 30px;
+    height: 3px;
+    display: block;
+    background-color: #fff;
+    border-radius: 2px;
+  }
 }

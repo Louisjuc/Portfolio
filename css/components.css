@@ -29,6 +29,12 @@
   padding: 10px 20px;
   border-radius: 40px;
   color: var(--primary-color);
+  margin-right: 20px;
+}
+
+.btn-live:hover {
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
 }
 
 .icon-grid {
@@ -46,6 +52,10 @@
   color: var(--secondary-color);
   transition: transform 0.4s ease-in-out;
 }
+/* Desktop: Wrapper ignorieren, ul und Sprachwahl sind direkte Flex-Kinder der Navigation */
+.mobile-nav {
+  display: contents;
+}
 
 .icon-item:hover {
   transform: scale(1.2);
@@ -60,19 +70,13 @@
   margin: 0;
 }
 
-/* Style the tab */
-.tab {
-  margin-inline: -80px;
-  padding: 0 80px;
-}
-
 /* Style the buttons that are used to open the tab content */
 .tab button {
   border: none;
   background: none;
   outline: none;
   cursor: pointer;
-  padding: 10px 20px;
+  padding: 20px;
   margin-right: 20px;
   transition: 0.3s;
   color: var(--secondary-color);
@@ -93,11 +97,8 @@
 
 /* Style the tab content */
 .tabcontent {
-  padding: 6px 12px;
   background-color: var(--light-color);
-  border-top: none;
-  margin-inline: -80px;
-  padding: 20px 80px;
+  padding: 20px 0;
   display: none;
 }
 
@@ -114,10 +115,21 @@
 }
 
 .tabcontent ul .li-description {
-  list-style-image: url("../assets/img/bullet.svg");
+  list-style: none;
+  position: relative;
   font-size: 24px;
   margin-bottom: 20px;
   font-weight: 400;
+}
+
+.tabcontent ul .li-description::before {
+  content: "";
+  position: absolute;
+  top: -3px;
+  left: -38px;
+  width: 23px; /* Bildgröße */
+  height: 23px;
+  background: url("../assets/img/bullet.svg") no-repeat center / contain;
 }
 
 .screenshot {
@@ -208,6 +220,18 @@ textarea {
   background: url("../assets/img/Check%20box.svg") center / 24px 24px no-repeat;
 }
 
+.legal__title {
+  text-align: left;
+}
+
+.legal__subtitle {
+  color: var(--secondary-color);
+  font-weight: 400;
+}
+
+@media (max-width: 1200px) {
+}
+
 @media (max-width: 900px) {
   .icon-grid {
     grid-template-columns: repeat(3, 1fr);
@@ -221,5 +245,49 @@ textarea {
 
   .form__mail {
     grid-template-columns: 1fr;
+  }
+
+  .tab button {
+    padding: 10px;
+
+    font-size: 18px;
+  }
+
+  .mobile-nav {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    background-image: url("../assets/img/shape.svg");
+    background-size: 210px;
+    background-repeat: no-repeat;
+    z-index: 0;
+    padding: 20px;
+    background-position: top center;
+    width: 300px;
+    height: 300px;
+    transition:
+      opacity 0.3s,
+      display 0.3s allow-discrete; /* NEU: display wird mit animiert */
+  }
+
+  .mobile-nav_toggle {
+    display: block;
+    transform: translateX(0);
+    opacity: 1;
+  }
+
+  @starting-style {
+    .mobile-nav_toggle {
+      opacity: 0;
+    }
+  }
+
+  .tabcontent.active {
+    display: flex;
+    gap: 20px;
+    padding: 40px 0;
   }
 }

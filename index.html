@@ -13,6 +13,11 @@
     <main>
       <section id="hero" class="hero">
         <img src="./assets/img/lj.png" alt="Louis Juchem" class="hero-image" />
+        <img
+          src="./assets/img/lj_mobile.png"
+          alt="Louis Juchem"
+          class="hero-image_mobile"
+        />
         <div class="hero_text">
           <img src="./assets/img/logo.svg" class="logo" />
           <div>
@@ -21,23 +26,25 @@
           </div>
           <a href="#why"
             ><button class="btn-down">
-              <img
-                src="../assets/img/Arrow Up.svg"
-                alt="Arrow Button"
-              /></button
+              <img src="./assets/img/Arrow Up.svg" alt="Arrow Button" /></button
           ></a>
         </div>
       </section>
       <nav class="navigation">
         <div><img src="./assets/img/logo_dark.svg" class="logo" /></div>
-        <ul>
-          <li><a href="#why">Why me</a></li>
-          <li><a href="#skills"> Skills</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-        <div>
-          <p>DE EN</p>
+        <div class="mobile-nav" id="mobile-nav">
+          <ul>
+            <li><a href="#why">Why me</a></li>
+            <li><a href="#skills"> Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li>DE EN</li>
+          </ul>
+        </div>
+        <div class="burger-menu" id="burger-menu">
+          <span></span>
+          <span></span>
+          <span></span>
         </div>
       </nav>
       <section id="why">
@@ -136,7 +143,7 @@
             <p>I am currently learning</p>
             <div class="flex">
               <img src="./assets/icons/Vue Js.svg" alt="Vue.js" />
-              <p>Vue.js</p>
+              <p class="m-0">Vue.js</p>
             </div>
             <p>
               Out of personal interest, I’m currently diving into Vue.js to
@@ -151,9 +158,9 @@
         <h2>My Projects</h2>
         <!-- Tab links -->
         <div class="tab">
-          <button class="tablinks active" data-project="Join">Join</button>
-          <button class="tablinks" data-project="Sharkie">Sharkie</button>
-          <button class="tablinks" data-project="PollApp">PollApp</button>
+          <button class="tablinks active" data-project="Join">1. Join</button>
+          <button class="tablinks" data-project="Sharkie">2. Sharkie</button>
+          <button class="tablinks" data-project="PollApp">3. PollApp</button>
         </div>
 
         <!-- Tab content -->
@@ -162,8 +169,9 @@
             <ul>
               <li class="li-description">About the Project</li>
               <li>
-                Task manager inspired by the Kanban System. Create and organize
-                tasks using drag and drop functions, assign users and categories
+                Task manager inspired by the Kanban system. Create and organize
+                tasks with drag and drop, assign contacts and categories, track
+                subtasks and keep the whole team in sync via Firebase.
               </li>
             </ul>
             <ul>
@@ -171,15 +179,20 @@
                 How I have organised my work process
               </li>
               <li>
-                Task manager inspired by the Kanban System. Create and organize
-                tasks using drag and drop functions, assign users and categories
+                We planned features as small tickets and worked with a clear Git
+                workflow: one branch per feature or fix, a pull request to main
+                and a review by at least one teammate before merging. Shared
+                design tokens and one JS module per page kept the code
+                consistent.
               </li>
             </ul>
             <ul>
               <li class="li-description">My group work experience</li>
               <li>
-                Task manager inspired by the Kanban System. Create and organize
-                tasks using drag and drop functions, assign users and categories
+                Join was built in a team of four developers. Regular check-ins,
+                code reviews and clearly split responsibilities taught me how to
+                communicate early, read other people's code and solve merge
+                conflicts together.
               </li>
             </ul>
           </div>
@@ -190,7 +203,7 @@
               <img src="./assets/icons/css.svg" />
               <img src="./assets/icons/Javascript.svg" />
             </div>
-            <img src="./assets/img/platzhalter.jpg" class="screenshot" />
+            <img src="./assets/img/join_screenshot.png" class="screenshot" />
             <div class="button-group">
               <button class="btn-live">Live Test</button>
               <button class="btn-classic">Github</button>
@@ -203,9 +216,9 @@
             <ul>
               <li class="li-description">About the Project</li>
               <li>
-                A simple Jump-and-Run game based on an object-oriented approach.
-                Help sharkie to find coins and poison battles to fight against
-                the killer whale,
+                A 2D jump-and-run game based on an object-oriented approach.
+                Help Sharkie collect coins and poison bottles, fight fish and
+                jellyfish and defeat the killer whale at the end of the level.
               </li>
             </ul>
             <ul>
@@ -213,15 +226,20 @@
                 How I have organised my work process
               </li>
               <li>
-                Task manager inspired by the Kanban System. Create and organize
-                tasks using drag and drop functions, assign users and categories
+                I structured the game into classes with clear responsibilities,
+                such as a shared movable object, the character, enemies, status
+                bars and the world. That way I could build and test each feature
+                step by step, from movement and collisions to sounds and the
+                endboss fight.
               </li>
             </ul>
             <ul>
-              <li class="li-description">My group work experience</li>
+              <li class="li-description">What I have learned</li>
               <li>
-                Task manager inspired by the Kanban System. Create and organize
-                tasks using drag and drop functions, assign users and categories
+                Sharkie taught me object-oriented programming in JavaScript:
+                inheritance, game loops, collision detection and sprite
+                animation on the canvas. I also learned how to manage sounds and
+                save settings like mute in localStorage.
               </li>
             </ul>
           </div>
@@ -232,7 +250,7 @@
               <img src="./assets/icons/css.svg" />
               <img src="./assets/icons/Javascript.svg" />
             </div>
-            <img src="./assets/img/platzhalter.jpg" class="screenshot" />
+            <img src="./assets/img/sharkie_screenshot.png" class="screenshot" />
             <div class="button-group">
               <button class="btn-live">Live Test</button>
               <button class="btn-classic">Github</button>
@@ -245,9 +263,10 @@
             <ul>
               <li class="li-description">About the Project</li>
               <li>
-                A simple Jump-and-Run game based on an object-oriented approach.
-                Help sharkie to find coins and poison battles to fight against
-                the killer whale,
+                A survey app built with Angular and Supabase. Create surveys
+                with multiple questions, single or multiple choice answers,
+                categories and an end date, then vote and watch the results
+                update in real time.
               </li>
             </ul>
             <ul>
@@ -255,15 +274,20 @@
                 How I have organised my work process
               </li>
               <li>
-                Task manager inspired by the Kanban System. Create and organize
-                tasks using drag and drop functions, assign users and categories
+                I started with the data model in Supabase (surveys, questions,
+                options and votes) and then built the app around it: an overview
+                page, a detail page and a create dialog. Shared services and
+                reusable components kept the code clean, and I finished by
+                refining the responsive design.
               </li>
             </ul>
             <ul>
-              <li class="li-description">My group work experience</li>
+              <li class="li-description">What I have learned</li>
               <li>
-                Task manager inspired by the Kanban System. Create and organize
-                tasks using drag and drop functions, assign users and categories
+                PollApp was my first larger Angular project. I learned to work
+                with components, routing, services and TypeScript interfaces,
+                and to connect a frontend to a real backend with Supabase
+                including real-time updates.
               </li>
             </ul>
           </div>
@@ -274,7 +298,7 @@
               <img src="./assets/icons/Icons.svg" />
               <img src="./assets/icons/css.svg" />
             </div>
-            <img src="./assets/img/platzhalter.jpg" class="screenshot" />
+            <img src="./assets/img/pollapp_screenshot.png" class="screenshot" />
             <div class="button-group">
               <button class="btn-live">Live Test</button>
               <button class="btn-classic">Github</button>
@@ -286,44 +310,38 @@
         <h2>Need a teamplayer? Here’s what my colleagues say about me</h2>
         <div class="flex-row">
           <div class="review-bubble">
-            <p>
-              Marlin Juchem <br />
-              Postdoc at <span>DLR</span>
-            </p>
+            <p>Marlin Juchem</p>
             <p>`What a legend. Faster than Claude!`</p>
           </div>
           <div class="review-bubble">
-            <p>
-              Marlin Juchem <br />
-              Postdoc at <span>DLR</span>
-            </p>
+            <p>Marlin Juchem</p>
             <p>`What a legend. Faster than Claude!`</p>
           </div>
           <div class="review-bubble">
-            <p>
-              Marlin Juchem <br />
-              Postdoc at <span>DLR</span>
-            </p>
+            <p>Marlin Juchem</p>
             <p>`What a legend. Faster than Claude!`</p>
           </div>
         </div>
       </section>
       <section id="contact">
         <h2>Contact me</h2>
-        <p>
-          Encourage people to contact you and describe what role you are
-          interested in. Show that you will add value to their projects through
-          your work. Example: Feel free to get in touch with job offers or
-          opportunities such as: ...
-        </p>
-        <p>
-          E-Mail:
-          <a href="mailto:louis.juchem@web.de" target="_blank"
-            >louis.juchem@web.de</a
-          >
-        </p>
-        <p>Tel: +49 00000</p>
-
+        <div class="contact-flex">
+          <p class="text-icon-flex">
+            Let’s build something great together. <br />Feel free to reach out,
+            I’m always open to new ideas and opportunities.
+          </p>
+          <div>
+            <p class="text-icon-flex">
+              <img src="./assets/icons/email.svg" /> E-Mail:
+              <a href="mailto:louis.juchem@web.de" target="_blank"
+                >louis.juchem@web.de</a
+              >
+            </p>
+            <p class="text-icon-flex">
+              <img src="./assets/icons/phone.svg" /> Tel: +49 00000
+            </p>
+          </div>
+        </div>
         <form class="form__mail">
           <label>
             Your Name:
@@ -339,8 +357,9 @@
             <div class="policy">
               <input type="checkbox" class="btn-accept" />
               <p>
-                I've read the privacy policy and agree to the processing of my
-                data as outlined.
+                I've read the
+                <a href="./pages/legal.html#datenschutz">privacy policy</a> and
+                agree to the processing of my data as outlined.
               </p>
             </div>
           </label>
@@ -351,7 +370,7 @@
     </main>
     <footer>
       <div>
-        <p>Legal notice</p>
+        <a href="./pages/legal.html"> <p>Legal notice</p></a>
         <p>© Louis Juchem 2026</p>
       </div>
       <img src="./assets/img/logo_dark.svg" class="logo" />
