@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Portfolio</title>
+    <title data-i18n="pageTitle">Portfolio</title>
     <link rel="stylesheet" href="./css/variables.css" />
     <link rel="stylesheet" href="./css/layout.css" />
     <link rel="stylesheet" href="./css/components.css" />
@@ -21,8 +21,8 @@
         <div class="hero_text">
           <img src="./assets/img/logo.svg" class="logo" />
           <div>
-            <h1>Louis Juchem</h1>
-            <p class="subtitle">Frontend Developer</p>
+            <h1 data-i18n="heroTitle">Louis Juchem</h1>
+            <p class="subtitle" data-i18n="heroSubtitle">Frontend Developer</p>
           </div>
           <a href="#why"
             ><button class="btn-down">
@@ -34,12 +34,17 @@
         <div><img src="./assets/img/logo_dark.svg" class="logo" /></div>
         <div class="mobile-nav" id="mobile-nav">
           <ul>
-            <li><a href="#why">Why me</a></li>
-            <li><a href="#skills"> Skills</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#contact">Contact</a></li>
-            <li>DE EN</li>
+            <li><a href="#why" data-i18n="navWhyMe">Why me</a></li>
+            <li><a href="#skills" data-i18n="navSkills">Skills</a></li>
+            <li><a href="#projects" data-i18n="navProjects">Projects</a></li>
+            <li><a href="#contact" data-i18n="navContact">Contact</a></li>
           </ul>
+          <button
+            id="lang-toggle"
+            aria-label="Sprache wechseln / Change language"
+          >
+            EN
+          </button>
         </div>
         <div class="burger-menu" id="burger-menu">
           <span></span>
@@ -48,30 +53,34 @@
         </div>
       </nav>
       <section id="why">
-        <h2>Why me?</h2>
+        <h2 data-i18n="whyHeading">Why me?</h2>
         <div class="section-wrapper">
-          <div>
-            <p class="info">
+          <div class="info-slider">
+            <p class="info" style="--i: 0">
               <img src="./assets/icons/location.svg" class="icon" /><span
+                data-i18n="locationIntro"
+                class="info-color"
                 >I am</span
               >
-              located in Munich.
+              <span data-i18n="locationDetails">located in Munich.</span>
             </p>
-            <p class="info">
+            <p class="info" style="--i: 1">
               <img src="./assets/img/remote.svg" class="icon" /><span
+                data-i18n="remoteIntro"
+                class="info-color"
                 >I am</span
               >
-              open to work remote.
+              <span data-i18n="remoteDetails">open to work remote.</span>
             </p>
           </div>
 
           <div class="why-text">
-            <p>
+            <p data-i18n="aboutBackground">
               My background as a media designer taught me to think in layouts,
               typography and visual hierarchy. My work as a frontend developer
               lets me bring those ideas to life in code.
             </p>
-            <p>
+            <p data-i18n="aboutExperience">
               Over several years in a recruitment marketing agency, I designed
               and built print and online job ads, responsive HTML templates and
               social media banners, including accessible templates that met
@@ -80,7 +89,7 @@
               reliable and detail-oriented.
             </p>
 
-            <p>
+            <p data-i18n="aboutApproach">
               Today, I combine this experience with a strong focus on frontend
               development, building responsive, component-based web applications
               with clean, maintainable code. The result: interfaces that are not
@@ -89,13 +98,15 @@
               need.
             </p>
             <a href="#contact"
-              ><button class="btn-classic">Lets Talk</button></a
+              ><button class="btn-classic" data-i18n="letsTalk">
+                Lets Talk
+              </button></a
             >
           </div>
         </div>
       </section>
       <section id="skills">
-        <h2>My Skills</h2>
+        <h2 data-i18n="skillsHeading">My Skills</h2>
         <div class="section-wrapper">
           <div class="icon-grid">
             <div class="icon-item">
@@ -104,11 +115,11 @@
             </div>
             <div class="icon-item">
               <img src="./assets/icons/Icons.svg" alt="" />
-              <p>Typescript</p>
+              <p>TypeScript</p>
             </div>
             <div class="icon-item">
               <img src="./assets/icons/Javascript.svg" alt="" />
-              <p>Javascript</p>
+              <p>JavaScript</p>
             </div>
             <div class="icon-item">
               <img src="./assets/icons/html.svg" alt="" />
@@ -120,7 +131,7 @@
             </div>
             <div class="icon-item">
               <img src="./assets/icons/Api.svg" alt="" />
-              <p>REST-API</p>
+              <p>REST API</p>
             </div>
             <div class="icon-item">
               <img src="./assets/icons/Supabase.svg" alt="" />
@@ -140,12 +151,12 @@
             </div>
           </div>
           <div class="learning">
-            <p>I am currently learning</p>
+            <p data-i18n="learningHeading">I am currently learning</p>
             <div class="flex">
               <img src="./assets/icons/Vue Js.svg" alt="Vue.js" />
               <p class="m-0">Vue.js</p>
             </div>
-            <p>
+            <p data-i18n="learningDescription">
               Out of personal interest, I’m currently diving into Vue.js to
               expand my skill set. Its lightweight, component-based approach
               makes it a great complement to my Angular experience and a popular
@@ -155,7 +166,7 @@
         </div>
       </section>
       <section id="projects">
-        <h2>My Projects</h2>
+        <h2 data-i18n="projectsHeading">My Projects</h2>
         <!-- Tab links -->
         <div class="tab">
           <button class="tablinks active" data-project="Join">1. Join</button>
@@ -167,18 +178,20 @@
         <div id="Join" class="tabcontent active">
           <div>
             <ul>
-              <li class="li-description">About the Project</li>
-              <li>
+              <li class="li-description" data-i18n="joinAboutHeading">
+                About the Project
+              </li>
+              <li data-i18n="joinAbout">
                 Task manager inspired by the Kanban system. Create and organize
                 tasks with drag and drop, assign contacts and categories, track
                 subtasks and keep the whole team in sync via Firebase.
               </li>
             </ul>
             <ul>
-              <li class="li-description">
+              <li class="li-description" data-i18n="joinProcessHeading">
                 How I have organised my work process
               </li>
-              <li>
+              <li data-i18n="joinProcess">
                 We planned features as small tickets and worked with a clear Git
                 workflow: one branch per feature or fix, a pull request to main
                 and a review by at least one teammate before merging. Shared
@@ -187,8 +200,10 @@
               </li>
             </ul>
             <ul>
-              <li class="li-description">My group work experience</li>
-              <li>
+              <li class="li-description" data-i18n="joinTeamHeading">
+                My group work experience
+              </li>
+              <li data-i18n="joinTeam">
                 Join was built in a team of four developers. Regular check-ins,
                 code reviews and clearly split responsibilities taught me how to
                 communicate early, read other people's code and solve merge
@@ -198,7 +213,7 @@
           </div>
           <div class="flex">
             <div class="techstack">
-              <p>Technologies</p>
+              <p data-i18n="technologiesHeading">Technologies</p>
               <img src="./assets/icons/html.svg" />
               <img src="./assets/icons/css.svg" />
               <img src="./assets/icons/Javascript.svg" />
@@ -206,7 +221,9 @@
             <img src="./assets/img/join_screenshot.png" class="screenshot" />
             <div class="button-group">
               <button class="btn-live">Live Test</button>
-              <button class="btn-classic">Github</button>
+              <a href="https://github.com/Louisjuc/join-louis" target="_blank"
+                ><button class="btn-classic">Github</button></a
+              >
             </div>
           </div>
         </div>
@@ -214,18 +231,20 @@
         <div id="Sharkie" class="tabcontent">
           <div>
             <ul>
-              <li class="li-description">About the Project</li>
-              <li>
+              <li class="li-description" data-i18n="sharkieAboutHeading">
+                About the Project
+              </li>
+              <li data-i18n="sharkieAbout">
                 A 2D jump-and-run game based on an object-oriented approach.
                 Help Sharkie collect coins and poison bottles, fight fish and
                 jellyfish and defeat the killer whale at the end of the level.
               </li>
             </ul>
             <ul>
-              <li class="li-description">
+              <li class="li-description" data-i18n="sharkieProcessHeading">
                 How I have organised my work process
               </li>
-              <li>
+              <li data-i18n="sharkieProcess">
                 I structured the game into classes with clear responsibilities,
                 such as a shared movable object, the character, enemies, status
                 bars and the world. That way I could build and test each feature
@@ -234,8 +253,10 @@
               </li>
             </ul>
             <ul>
-              <li class="li-description">What I have learned</li>
-              <li>
+              <li class="li-description" data-i18n="sharkieLearningHeading">
+                What I have learned
+              </li>
+              <li data-i18n="sharkieLearning">
                 Sharkie taught me object-oriented programming in JavaScript:
                 inheritance, game loops, collision detection and sprite
                 animation on the canvas. I also learned how to manage sounds and
@@ -245,7 +266,7 @@
           </div>
           <div class="flex">
             <div class="techstack">
-              <p>Technologies</p>
+              <p data-i18n="technologiesHeading">Technologies</p>
               <img src="./assets/icons/html.svg" />
               <img src="./assets/icons/css.svg" />
               <img src="./assets/icons/Javascript.svg" />
@@ -253,7 +274,9 @@
             <img src="./assets/img/sharkie_screenshot.png" class="screenshot" />
             <div class="button-group">
               <button class="btn-live">Live Test</button>
-              <button class="btn-classic">Github</button>
+              <a href="https://github.com/Louisjuc/Sharkie" target="_blank"
+                ><button class="btn-classic">Github</button></a
+              >
             </div>
           </div>
         </div>
@@ -261,8 +284,10 @@
         <div id="PollApp" class="tabcontent">
           <div>
             <ul>
-              <li class="li-description">About the Project</li>
-              <li>
+              <li class="li-description" data-i18n="pollAppAboutHeading">
+                About the Project
+              </li>
+              <li data-i18n="pollAppAbout">
                 A survey app built with Angular and Supabase. Create surveys
                 with multiple questions, single or multiple choice answers,
                 categories and an end date, then vote and watch the results
@@ -270,10 +295,10 @@
               </li>
             </ul>
             <ul>
-              <li class="li-description">
+              <li class="li-description" data-i18n="pollAppProcessHeading">
                 How I have organised my work process
               </li>
-              <li>
+              <li data-i18n="pollAppProcess">
                 I started with the data model in Supabase (surveys, questions,
                 options and votes) and then built the app around it: an overview
                 page, a detail page and a create dialog. Shared services and
@@ -282,8 +307,10 @@
               </li>
             </ul>
             <ul>
-              <li class="li-description">What I have learned</li>
-              <li>
+              <li class="li-description" data-i18n="pollAppLearningHeading">
+                What I have learned
+              </li>
+              <li data-i18n="pollAppLearning">
                 PollApp was my first larger Angular project. I learned to work
                 with components, routing, services and TypeScript interfaces,
                 and to connect a frontend to a real backend with Supabase
@@ -293,7 +320,7 @@
           </div>
           <div class="flex">
             <div class="techstack">
-              <p>Technologies</p>
+              <p data-i18n="technologiesHeading">Technologies</p>
               <img src="./assets/icons/Angular.svg" />
               <img src="./assets/icons/Icons.svg" />
               <img src="./assets/icons/css.svg" />
@@ -301,76 +328,153 @@
             <img src="./assets/img/pollapp_screenshot.png" class="screenshot" />
             <div class="button-group">
               <button class="btn-live">Live Test</button>
-              <button class="btn-classic">Github</button>
+              <a href="https://github.com/Louisjuc/PollApp" target="_blank"
+                ><button class="btn-classic">Github</button></a
+              >
             </div>
           </div>
         </div>
       </section>
       <section id="reviews">
-        <h2>Need a teamplayer? Here’s what my colleagues say about me</h2>
+        <h2 data-i18n="reviewsHeading">
+          Need a teamplayer? Here’s what my colleagues say about me
+        </h2>
         <div class="flex-row">
           <div class="review-bubble">
-            <p>Marlin Juchem</p>
-            <p>`What a legend. Faster than Claude!`</p>
+            <p>
+              <span data-i18n="reviewerName">Marlin Juchem</span><br />
+              <span data-i18n="reviewerCompany">DLR</span>
+            </p>
+            <p data-i18n="reviewOneQuote">
+              "Louis had to develop, format and deliver content in collaboration
+              with the team members. He is a reliable and friendly person."
+            </p>
           </div>
           <div class="review-bubble">
-            <p>Marlin Juchem</p>
-            <p>`What a legend. Faster than Claude!`</p>
+            <p>
+              <span data-i18n="reviewerName">Marlin Juchem</span><br />
+              <span data-i18n="reviewerCompany">DLR</span>
+            </p>
+            <p data-i18n="reviewTwoQuote">
+              "Louis is a reliable and friendly person. He works in a structured
+              way and writes clear code."
+            </p>
           </div>
           <div class="review-bubble">
-            <p>Marlin Juchem</p>
-            <p>`What a legend. Faster than Claude!`</p>
+            <p>
+              <span data-i18n="reviewerName">Marlin Juchem</span><br />
+              <span data-i18n="reviewerCompany">DLR</span>
+            </p>
+            <p data-i18n="reviewThreeQuote">
+              "He is a trustworthy team player and can cope with the stress of
+              deadlines. Structured work and clear code."
+            </p>
           </div>
         </div>
       </section>
       <section id="contact">
-        <h2>Contact me</h2>
+        <h2 data-i18n="contactHeading">Contact me</h2>
         <div class="contact-flex">
-          <p class="text-icon-flex">
-            Let’s build something great together. <br />Feel free to reach out,
-            I’m always open to new ideas and opportunities.
-          </p>
           <div>
-            <p class="text-icon-flex">
-              <img src="./assets/icons/email.svg" /> E-Mail:
-              <a href="mailto:louis.juchem@web.de" target="_blank"
+            <p data-i18n="contactIntroLineOne" class="m-0">
+              Let’s build something great together.
+            </p>
+            <br />
+            <p data-i18n="contactIntroLineTwo" class="m-0">
+              Feel free to reach out, I’m always open to new ideas and
+              opportunities.
+            </p>
+          </div>
+          <div>
+            <p class="text-icon-flex m-0">
+              <svg
+                width="27"
+                height="30"
+                viewBox="0 0 27 30"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M4.18262 6H21.6445C22.1695 6.00017 22.8271 6.54564 22.8271 7.5V22.5C22.8271 23.4544 22.1695 23.9998 21.6445 24H4.18262C3.65777 23.9999 3.00045 23.4548 3 22.501L3.01074 7.50098V7.5C3.01074 6.53865 3.66359 6.00006 4.18262 6Z"
+                  stroke="#F8F5EC"
+                  stroke-width="2"
+                />
+                <path
+                  d="M6 10C6 10 12.5033 15 12.8182 15C13.133 15 20.0909 10 20.0909 10"
+                  stroke="#F8F5EC"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                />
+              </svg>
+              <span data-i18n="emailLabel">E-Mail:</span>
+              <a
+                href="mailto:louis.juchem@web.de"
+                target="_blank"
+                data-i18n="contactEmail"
                 >louis.juchem@web.de</a
               >
             </p>
-            <p class="text-icon-flex">
-              <img src="./assets/icons/phone.svg" /> Tel: +49 00000
+            <p class="text-icon-flex m-0">
+              <svg
+                width="27"
+                height="31"
+                viewBox="0 0 27 31"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M8.18457 4.86719C8.19003 4.87091 8.20013 4.87758 8.21289 4.89258C8.25249 4.93924 8.29688 5.0304 8.29688 5.15625C8.29688 6.85315 8.52699 8.48622 8.9541 10.0146V10.0156C9.00002 10.1878 8.95463 10.3432 8.88477 10.4258L6.47852 13.2617L6.07617 13.7354L6.32227 14.3057C7.97227 18.1273 10.6423 21.2735 13.9316 23.2598L14.6602 23.7002L15.2109 23.0508L17.6172 20.2148C17.6232 20.2078 17.6294 20.2032 17.6338 20.1992C18.9591 20.7117 20.3894 20.9898 21.8564 20.9922C21.8618 20.9957 21.8722 21.0027 21.8857 21.0186C21.9253 21.0652 21.9697 21.1565 21.9697 21.2822V25.7812C21.9697 25.9071 21.9253 25.9983 21.8857 26.0449C21.873 26.0599 21.862 26.0655 21.8564 26.0693C12.2943 26.0571 4.28125 16.8608 4.28125 5.15625C4.28125 5.0304 4.32564 4.93924 4.36523 4.89258C4.37794 4.87764 4.38807 4.87095 4.39355 4.86719H8.18457Z"
+                  stroke="#F8F5EC"
+                  stroke-width="2"
+                />
+              </svg>
+              <span data-i18n="phoneLabel">Tel:</span>
+              <span data-i18n="contactPhone">+49 00000</span>
             </p>
           </div>
         </div>
         <form class="form__mail">
           <label>
-            Your Name:
-            <input type="text" name="name" />
+            <span data-i18n="nameLabel">Your Name:</span>
+            <input type="text" name="name" required />
           </label>
           <label>
-            Your E-mail:
-            <input type="email" name="email" />
+            <span data-i18n="emailFieldLabel">Your E-mail:</span>
+            <input type="email" name="email" required />
           </label>
           <label class="form__message">
-            Your Message:
-            <textarea name="message"></textarea>
-            <div class="policy">
-              <input type="checkbox" class="btn-accept" />
-              <p>
-                I've read the
-                <a href="./pages/legal.html#datenschutz">privacy policy</a> and
-                agree to the processing of my data as outlined.
-              </p>
-            </div>
+            <span data-i18n="messageLabel">Your Message:</span>
+            <textarea name="message" required></textarea>
           </label>
+          <div class="policy">
+            <input
+              type="checkbox"
+              id="privacy-policy"
+              class="btn-accept"
+              required
+            />
+            <label for="privacy-policy">
+              <span data-i18n="privacyConsentBefore">I've read the</span>
+              <a
+                href="./pages/legal.html#datenschutz"
+                data-i18n="privacyPolicyLink"
+                >privacy policy</a
+              >
+              <span data-i18n="privacyConsentAfter"
+                >and agree to the processing of my data as outlined.</span
+              >
+            </label>
+          </div>
           <!-- your other form fields go here -->
+          <button type="submit" class="btn-classic" data-i18n="sendButton">
+            Send
+          </button>
         </form>
-        <button type="submit" class="btn-classic">Send</button>
       </section>
     </main>
     <footer>
       <div>
-        <a href="./pages/legal.html"> <p>Legal notice</p></a>
+        <a href="./pages/legal.html"> <p>Impressum</p></a>
         <p>© Louis Juchem 2026</p>
       </div>
       <img src="./assets/img/logo_dark.svg" class="logo" />

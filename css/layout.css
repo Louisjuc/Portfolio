@@ -1,3 +1,16 @@
+:root {
+  interpolate-size: allow-keywords;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 40px;
+}
+
+.m-0 {
+  margin: 0;
+}
+
 body {
   margin: 0;
   background-color: var(--primary-color);
@@ -5,6 +18,10 @@ body {
   font-family: "Josefin Sans", sans-serif;
   line-height: 1.3em;
   font-size: 18px;
+}
+
+button {
+  width: fit-content;
 }
 
 h1,
@@ -31,10 +48,6 @@ select {
 
 .screenshot {
   margin: 20px 0;
-}
-
-html {
-  scroll-behavior: smooth;
 }
 
 a {
@@ -167,7 +180,7 @@ h2 {
   list-style: none;
   display: flex;
 
-  gap: 30px;
+  gap: 80px;
 }
 
 .navigation ul li a {
@@ -192,14 +205,74 @@ h2 {
   width: 60%;
 }
 
-.info {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 10px;
+.info-slider {
+  display: grid;
+  overflow: hidden;
+  --slot: 8s;
+  width: var(--slider-w, 350px);
+  max-width: 100%;
 }
 
-.info span {
+.info {
+  max-width: 100%;
+  grid-area: 1 / 1;
+  position: relative;
+  overflow: hidden;
+  box-sizing: border-box;
+  border-right: 1.5px solid var(--secondary-color);
+  white-space: nowrap;
+  margin: 0 auto;
+  --spacing: 0.15em;
+  letter-spacing: var(--spacing);
+  animation:
+    info-cycle calc(var(--slot) * 2) infinite backwards,
+    blink-caret 0.75s step-end infinite;
+  animation-delay: calc(var(--i) * var(--slot)), 0s;
+}
+/* --w minus letter-spacing hinter dem letzten Zeichen: Cursor sitzt direkt am Satzende */
+@keyframes info-cycle {
+  0% {
+    width: 0;
+    transform: translateY(100%);
+    animation-timing-function: ease-out;
+  }
+  3% {
+    width: 0;
+    transform: translateY(0);
+    animation-timing-function: steps(40, end);
+  }
+  25% {
+    width: calc(var(--w) - var(--spacing));
+    transform: translateY(0);
+  }
+  44% {
+    width: calc(var(--w) - var(--spacing));
+    transform: translateY(0);
+    animation-timing-function: ease-in;
+  }
+  48% {
+    width: calc(var(--w) - var(--spacing));
+    transform: translateY(-100%);
+  }
+  48.1%,
+  100% {
+    width: calc(var(--w) - var(--spacing));
+    transform: translateY(100%);
+  }
+}
+
+/* The typewriter cursor effect */
+@keyframes blink-caret {
+  from,
+  to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: var(--secondary-color);
+  }
+}
+
+.info-color {
   color: var(--secondary-color);
 }
 
@@ -207,10 +280,6 @@ h2 {
   display: flex;
   align-items: center;
   gap: 10px;
-}
-
-.policy p {
-  margin: 0;
 }
 
 .learning {
@@ -331,11 +400,11 @@ footer a:hover {
   }
 
   .flex-row,
-  .info,
   .policy,
   .contact-flex,
   .text-icon-flex {
     flex-direction: column;
+    display: inherit;
   }
 
   /* Verhindert seitliches Scrollen durch das ausgeblendete Menü (clip statt hidden, damit die sticky Nav weiter funktioniert) */

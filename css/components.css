@@ -11,8 +11,25 @@
   cursor: pointer;
 }
 
+#lang-toggle {
+  background: none;
+  padding: 20px;
+  background-position: center;
+  border: none;
+}
+
+#lang-toggle:hover {
+  color: #fff;
+  background-image: url("../assets/img/lang_hover.svg");
+  background-repeat: no-repeat;
+}
+
 .icon {
   width: 40px;
+}
+.info .icon {
+  vertical-align: middle;
+  margin-right: 0.4rem;
 }
 
 .btn-classic {
@@ -21,6 +38,13 @@
   padding: 10px 20px;
   border-radius: 40px;
   color: var(--secondary-color);
+}
+
+.btn-classic:disabled,
+.btn-classic:disabled:hover {
+  opacity: 0.4;
+  background: none;
+  cursor: not-allowed;
 }
 
 .btn-live {
@@ -186,8 +210,13 @@ textarea {
 }
 
 .form__mail h2,
-.form__mail .form__message {
+.form__mail .form__message,
+.form__mail .policy {
   grid-column: 1 / -1;
+}
+
+.form__mail .policy label {
+  display: block;
 }
 
 .form__mail label {
@@ -212,12 +241,39 @@ textarea {
   padding: 0;
   border: none;
   border-radius: 0;
-  background: url("../assets/img/accept.svg") center / 22px 20px no-repeat;
+  /* Hover image is preloaded as a zero-sized layer so the first hover doesn't flicker */
+  background:
+    url("../assets/img/accept.svg") center / 22px 20px no-repeat,
+    url("../assets/img/checkbox_hover.svg") center / 0 0 no-repeat;
   cursor: pointer;
 }
 
 .form__mail .btn-accept:checked {
   background: url("../assets/img/Check%20box.svg") center / 24px 24px no-repeat;
+}
+
+.form__mail .is-invalid {
+  border: 2px solid var(--error-color);
+}
+
+/* Checkbox is a background image, so swap it for the red variant instead of a border */
+.form__mail .btn-accept.is-invalid {
+  border: none;
+  background: url("../assets/img/false.svg") center / 22px 20px no-repeat;
+}
+.form__mail .btn-accept:not(:checked):hover {
+  background: url("../assets/img/checkbox_hover.svg") center / 22px 20px
+    no-repeat;
+}
+
+.form__mail .policy {
+  flex-wrap: wrap;
+}
+
+.form__error {
+  flex-basis: 100%;
+  color: var(--error-color);
+  font-size: 14px;
 }
 
 .legal__title {
