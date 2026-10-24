@@ -32,19 +32,27 @@ export function initContactForm() {
  * @returns {void}
  */
 function initFieldValidation(form) {
-  form.querySelectorAll("[required]").forEach((field) => {
-    if (field.type === "checkbox") {
-      field.addEventListener("change", () => validateField(field));
-      return;
-    }
-    field.addEventListener("blur", () => validateField(field));
-    field.addEventListener("input", () => {
-      if (field.classList.contains("is-invalid")) validateField(field);
-    });
-  });
+  form.querySelectorAll("[required]").forEach(watchField);
 
   form.addEventListener("reset", () => {
     form.querySelectorAll(".is-invalid").forEach(clearFieldError);
+  });
+}
+
+/**
+ * Validates a single required field: the checkbox on change, text fields
+ * on blur and – once an error is shown – on every input.
+ * @param {HTMLInputElement | HTMLTextAreaElement} field - The field to watch.
+ * @returns {void}
+ */
+function watchField(field) {
+  if (field.type === "checkbox") {
+    field.addEventListener("change", () => validateField(field));
+    return;
+  }
+  field.addEventListener("blur", () => validateField(field));
+  field.addEventListener("input", () => {
+    if (field.classList.contains("is-invalid")) validateField(field);
   });
 }
 
@@ -111,37 +119,40 @@ function clearFieldError(field) {
  * @returns {Promise<void>}
  */
 async function sendForm(form) {
-  const button = form.querySelector('[type="submit"]');
-  const data = Object.fromEntries(new FormData(form));
-
-  setButtonLoading(button, true);
+  setButtonLoading(form, true);
   showStatus(form, "");
-
   try {
-    const response = await fetch(ENDPOINT, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        name: data.name,
-        email: data.email,
-        message: data.message,
-        website: data.website ?? "", // honeypot, stays empty for humans
-      }),
-    });
-    const result = await response.json();
-
-    if (!response.ok || !result.success) throw new Error(result.error);
-
+    await postContact(Object.fromEntries(new FormData(form)));
     form.reset();
     showStatus(form, t("formSuccess"), "success");
   } catch {
     showStatus(form, t("formError"), "error");
   } finally {
-    setButtonLoading(button, false);
+    setButtonLoading(form, false);
     updateSubmitState(form);
   }
 }
 
+/**
+ * Posts the contact data as JSON to {@link ENDPOINT}.
+ * @param {Record<string, FormDataEntryValue>} data - The form values.
+ * @returns {Promise<void>}
+ * @throws {Error} If the request fails or the backend reports no success.
+ */
+async function postContact(data) {
+  const response = await fetch(ENDPOINT, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      name: data.name,
+      email: data.email,
+      message: data.message,
+      website: data.website ?? "", // honeypot, stays empty for humans
+    }),
+  });
+  const result = await response.json();
+  if (!response.ok || !result.success) throw new Error(result.error);
+}
 /**
  * Disables the submit button while any required field is missing or invalid.
  * Skipped while the form is being sent.
@@ -155,12 +166,13 @@ function updateSubmitState(form) {
 }
 
 /**
- * Switches the submit button between its loading and normal state.
- * @param {HTMLButtonElement | null} button - The submit button.
+ * Switches the form's submit button between its loading and normal state.
+ * @param {HTMLFormElement} form - The form whose submit button is updated.
  * @param {boolean} isLoading - Whether the form is currently being sent.
  * @returns {void}
  */
-function setButtonLoading(button, isLoading) {
+function setButtonLoading(form, isLoading) {
+  const button = form.querySelector('[type="submit"]');
   if (!button) return;
   button.disabled = isLoading;
   if (isLoading) button.dataset.loading = "true";

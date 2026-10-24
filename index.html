@@ -1,12 +1,13 @@
 <!doctype html>
-<html lang="de">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title data-i18n="pageTitle">Portfolio</title>
+    <title>Portfolio</title>
     <link rel="stylesheet" href="./css/variables.css" />
     <link rel="stylesheet" href="./css/layout.css" />
     <link rel="stylesheet" href="./css/components.css" />
+    <link rel="icon" type="image/x-icon" href="./assets/img/lj_light.PNG" />
     <script type="module" src="js/main.js"></script>
   </head>
   <body>
@@ -19,9 +20,9 @@
           class="hero-image_mobile"
         />
         <div class="hero_text">
-          <img src="./assets/img/logo.svg" class="logo" />
+          <img src="./assets/img/lj_light.PNG" class="logo" />
           <div>
-            <h1 data-i18n="heroTitle">Louis Juchem</h1>
+            <h1>Louis Juchem</h1>
             <p class="subtitle" data-i18n="heroSubtitle">Frontend Developer</p>
           </div>
           <a href="#why"
@@ -31,11 +32,14 @@
         </div>
       </section>
       <nav class="navigation">
-        <div><img src="./assets/img/logo_dark.svg" class="logo" /></div>
+        <div>
+          <img src="./assets/img/lj_dark.PNG" class="logo" />
+          <img src="./assets/img/lj_light.PNG" class="logo_mobile" />
+        </div>
         <div class="mobile-nav" id="mobile-nav">
           <ul>
             <li><a href="#why" data-i18n="navWhyMe">Why me</a></li>
-            <li><a href="#skills" data-i18n="navSkills">Skills</a></li>
+            <li><a href="#skills">Skills</a></li>
             <li><a href="#projects" data-i18n="navProjects">Projects</a></li>
             <li><a href="#contact" data-i18n="navContact">Contact</a></li>
           </ul>
@@ -70,7 +74,7 @@
                 class="info-color"
                 >I am</span
               >
-              <span data-i18n="remoteDetails">open to work remote.</span>
+              <span data-i18n="remoteDetails">open to working remotely.</span>
             </p>
           </div>
 
@@ -99,7 +103,7 @@
             </p>
             <a href="#contact"
               ><button class="btn-classic" data-i18n="letsTalk">
-                Lets Talk
+                Let's Talk
               </button></a
             >
           </div>
@@ -337,37 +341,28 @@
       </section>
       <section id="reviews">
         <h2 data-i18n="reviewsHeading">
-          Need a teamplayer? Here’s what my colleagues say about me
+          Need a team player? Here’s what my colleagues say about me
         </h2>
         <div class="flex-row">
           <div class="review-bubble">
-            <p>
-              <span data-i18n="reviewerName">Marlin Juchem</span><br />
-              <span data-i18n="reviewerCompany">DLR</span>
-            </p>
-            <p data-i18n="reviewOneQuote">
-              "Louis had to develop, format and deliver content in collaboration
-              with the team members. He is a reliable and friendly person."
+            <p><span>Angelo Pietsch</span></p>
+            <p data-i18n="reviewOneQuote" class="m-0">
+              “Louis had to develop, format and deliver content in collaboration
+              with the team members. He is a reliable and friendly person.”
             </p>
           </div>
           <div class="review-bubble">
-            <p>
-              <span data-i18n="reviewerName">Marlin Juchem</span><br />
-              <span data-i18n="reviewerCompany">DLR</span>
-            </p>
-            <p data-i18n="reviewTwoQuote">
-              "Louis is a reliable and friendly person. He works in a structured
-              way and writes clear code."
+            <p><span>Marlin Juchem</span></p>
+            <p data-i18n="reviewTwoQuote" class="m-0">
+              “Louis is a reliable and friendly person. He works in a structured
+              way and writes clear code.”
             </p>
           </div>
           <div class="review-bubble">
-            <p>
-              <span data-i18n="reviewerName">Marlin Juchem</span><br />
-              <span data-i18n="reviewerCompany">DLR</span>
-            </p>
-            <p data-i18n="reviewThreeQuote">
-              "He is a trustworthy team player and can cope with the stress of
-              deadlines. Structured work and clear code."
+            <p><span>Marlin Juchem</span></p>
+            <p data-i18n="reviewThreeQuote" class="m-0">
+              “He is a trustworthy team player and can cope with the stress of
+              deadlines. Structured work and clear code.”
             </p>
           </div>
         </div>
@@ -406,11 +401,8 @@
                   stroke-linecap="round"
                 />
               </svg>
-              <span data-i18n="emailLabel">E-Mail:</span>
-              <a
-                href="mailto:louis.juchem@web.de"
-                target="_blank"
-                data-i18n="contactEmail"
+              <span>E-Mail:</span>
+              <a href="mailto:louis.juchem@web.de" target="_blank"
                 >louis.juchem@web.de</a
               >
             </p>
@@ -428,8 +420,8 @@
                   stroke-width="2"
                 />
               </svg>
-              <span data-i18n="phoneLabel">Tel:</span>
-              <span data-i18n="contactPhone">+49 00000</span>
+              <span>Tel:</span>
+              <span>+49 00000</span>
             </p>
           </div>
         </div>
@@ -454,7 +446,7 @@
               required
             />
             <label for="privacy-policy">
-              <span data-i18n="privacyConsentBefore">I've read the</span>
+              <span data-i18n="privacyConsentBefore">I’ve read the</span>
               <a
                 href="./pages/legal.html#datenschutz"
                 data-i18n="privacyPolicyLink"
@@ -477,7 +469,7 @@
         <a href="./pages/legal.html"> <p>Impressum</p></a>
         <p>© Louis Juchem 2026</p>
       </div>
-      <img src="./assets/img/logo_dark.svg" class="logo" />
+      <img src="./assets/img/lj_dark.PNG" class="logo" />
       <div>
         <a href="https://github.com/Louisjuc" target="_blank">
           <img src="./assets/img/github_footer.svg" class="icon"

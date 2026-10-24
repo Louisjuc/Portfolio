@@ -171,13 +171,18 @@
 }
 
 .review-bubble {
+  box-sizing: border-box;
+  width: 320px;
+  max-width: 100%;
+  aspect-ratio: 1; /* Blob-SVG ist quadratisch */
+  padding: 64px; /* ca. 20% der Bubble-Breite; % würde sich aufs Elternelement beziehen */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   background-image: url("../assets/icons/review.svg");
   background-repeat: no-repeat;
-  height: 200px;
-  padding: 80px;
-  width: fit-content;
   background-position: center;
-  background-size: 300px;
+  background-size: 100% 100%; /* Blob füllt immer die ganze Box */
   text-align: center;
 }
 
@@ -283,6 +288,14 @@ textarea {
 .legal__subtitle {
   color: var(--secondary-color);
   font-weight: 400;
+}
+
+.legal__note {
+  font-style: italic;
+}
+
+.legal__note:empty {
+  display: none;
 }
 
 @media (max-width: 1200px) {

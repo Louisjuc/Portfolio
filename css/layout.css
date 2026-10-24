@@ -98,9 +98,12 @@ footer {
   gap: 20px;
 }
 
+/* Grid statt Flex: die Zeile sitzt unten (align-content), der Text wird innerhalb der Zeile auf Bildhöhe zentriert (align-items) */
 .hero {
-  display: flex;
-  align-items: flex-end;
+  display: grid;
+  grid-auto-flow: column;
+  align-content: end;
+  align-items: center;
   justify-content: center;
   text-align: center;
   height: calc(100svh - var(--nav-height));
@@ -127,7 +130,6 @@ footer {
 }
 
 .hero_text {
-  align-self: center;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -137,6 +139,10 @@ footer {
 
 .logo {
   width: 60px;
+}
+
+.logo_mobile {
+  display: none;
 }
 
 section {
@@ -179,7 +185,6 @@ h2 {
 .navigation ul {
   list-style: none;
   display: flex;
-
   gap: 80px;
 }
 
@@ -211,6 +216,8 @@ h2 {
   --slot: 8s;
   width: var(--slider-w, 350px);
   max-width: 100%;
+  /* Slider behält seine Textbreite, der Fließtext daneben gibt nach */
+  flex-shrink: 0;
 }
 
 .info {
@@ -309,6 +316,20 @@ h2 {
   gap: 15px;
 }
 
+.text-icon-flex + .text-icon-flex {
+  margin-top: 16px;
+}
+
+/* Beim Hover werden Icon, Label und Link komplett blau */
+.text-icon-flex:hover,
+.text-icon-flex:hover a {
+  color: var(--secondary-color);
+}
+
+.text-icon-flex:hover svg path {
+  stroke: var(--secondary-color);
+}
+
 #skills .section-wrapper {
   align-items: flex-start;
 }
@@ -363,6 +384,15 @@ footer a:hover {
 
   .why-text {
     width: inherit;
+  }
+
+  .logo {
+    display: none;
+  }
+
+  .logo_mobile {
+    display: block;
+    width: 60px;
   }
 
   .hero {
