@@ -348,11 +348,11 @@
             <p><span>Angelo Pietsch</span></p>
             <p data-i18n="reviewOneQuote" class="m-0">
               “Louis had to develop, format and deliver content in collaboration
-              with the team members. He is a reliable and friendly person.”
+              with the team members.”
             </p>
           </div>
           <div class="review-bubble">
-            <p><span>Marlin Juchem</span></p>
+            <p><span>Christian Mulugeta</span></p>
             <p data-i18n="reviewTwoQuote" class="m-0">
               “Louis is a reliable and friendly person. He works in a structured
               way and writes clear code.”
@@ -421,22 +421,22 @@
                 />
               </svg>
               <span>Tel:</span>
-              <span>+49 00000</span>
+              <a href="tel:+491785856983">+49 1785856983</a>
             </p>
           </div>
         </div>
         <form class="form__mail">
           <label>
             <span data-i18n="nameLabel">Your Name:</span>
-            <input type="text" name="name" required />
+            <input type="text" name="name" maxlength="100" required />
           </label>
           <label>
             <span data-i18n="emailFieldLabel">Your E-mail:</span>
-            <input type="email" name="email" required />
+            <input type="email" name="email" maxlength="254" required />
           </label>
           <label class="form__message">
             <span data-i18n="messageLabel">Your Message:</span>
-            <textarea name="message" required></textarea>
+            <textarea name="message" maxlength="5000" required></textarea>
           </label>
           <div class="policy">
             <input
@@ -457,7 +457,13 @@
               >
             </label>
           </div>
-          <!-- your other form fields go here -->
+          <!-- Honeypot: für Menschen unsichtbar, Bots füllen es aus -->
+          <div class="form__hp" aria-hidden="true">
+            <label>
+              Website
+              <input type="text" name="website" tabindex="-1" autocomplete="off" />
+            </label>
+          </div>
           <button type="submit" class="btn-classic" data-i18n="sendButton">
             Send
           </button>
@@ -472,10 +478,10 @@
       <img src="./assets/img/lj_dark.PNG" class="logo" />
       <div>
         <a href="https://github.com/Louisjuc" target="_blank">
-          <img src="./assets/img/github_footer.svg" class="icon"
+          <img src="./assets/img/github_footer.svg" class="footer-icon"
         /></a>
         <a href="mailto:louis.juchem@web.de" target="_blank">
-          <img src="./assets/img/email_footer.svg" class="icon"
+          <img src="./assets/img/email_footer.svg" class="footer-icon"
         /></a>
       </div>
     </footer>

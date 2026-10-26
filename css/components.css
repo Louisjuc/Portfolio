@@ -24,8 +24,21 @@
   background-repeat: no-repeat;
 }
 
-.icon {
+.icon,
+.footer-icon {
   width: 40px;
+}
+
+.footer-icon {
+  margin-left: 10px;
+}
+
+.footer-icon:hover {
+  fill: #fff;
+}
+
+.footer-icon:hover {
+  filter: brightness(0) invert(1); /* macht das Icon weiß */
 }
 .info .icon {
   vertical-align: middle;
@@ -273,6 +286,14 @@ textarea {
 
 .form__mail .policy {
   flex-wrap: wrap;
+}
+
+.form__hp {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
 }
 
 .form__error {

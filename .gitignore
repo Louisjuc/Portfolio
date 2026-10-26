@@ -34,3 +34,4 @@ npm-debug.log*
 
 # Claude Code (lokale Einstellungen)
 .claude/settings.local.json
+.claude/

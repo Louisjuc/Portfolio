@@ -54,7 +54,7 @@ export const translations = {
     reviewsHeading:
       "Brauchst du einen Teamplayer? Das sagen meine Kollegen über mich",
     reviewOneQuote:
-      "„Louis hat in Zusammenarbeit mit den Teammitgliedern Inhalte entwickelt, formatiert und ausgeliefert. Er ist eine zuverlässige und freundliche Person.“",
+      "„Louis hat in Zusammenarbeit mit den Teammitgliedern Inhalte entwickelt, formatiert und ausgeliefert.“",
     reviewTwoQuote:
       "„Louis ist eine zuverlässige und freundliche Person. Er arbeitet strukturiert und schreibt sauberen Code.“",
     reviewThreeQuote:

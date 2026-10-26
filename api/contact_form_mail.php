@@ -1,9 +1,6 @@
 <?php
 
 // CORS headers (for Angular / frontend apps)
-header("Access-Control-Allow-Origin: *");
-header("Access-Control-Allow-Methods: POST, OPTIONS");
-header("Access-Control-Allow-Headers: Content-Type");
 header("Content-Type: application/json; charset=utf-8");
 
 // ------------------------------------------------------------
@@ -22,11 +19,6 @@ require $configFile;
 
 switch ($_SERVER['REQUEST_METHOD']) {
 
-    case 'OPTIONS':
-        // Preflight request
-        http_response_code(200);
-        exit;
-
     case 'POST':
         // Read raw JSON payload
         $json = file_get_contents('php://input');
@@ -39,14 +31,29 @@ switch ($_SERVER['REQUEST_METHOD']) {
             exit;
         }
 
-        $email = $params->email ?? '';
-        $name = $params->name ?? '';
-        $userMessage = $params->message ?? '';
+        $email = trim((string) ($params->email ?? ''));
+        $name = trim((string) ($params->name ?? ''));
+        $userMessage = trim((string) ($params->message ?? ''));
+        $honeypot = trim((string) ($params->website ?? ''));
+
+        // Honeypot: Menschen sehen das Feld nicht, also war es ein Bot.
+        // Erfolg vortäuschen, damit der Bot nicht weiter probiert.
+        if ($honeypot !== '') {
+            echo json_encode(['success' => true]);
+            exit;
+        }
 
         // Basic validation
-        if (!filter_var($email, FILTER_VALIDATE_EMAIL) || empty($name) || empty($userMessage)) {
+        if (!filter_var($email, FILTER_VALIDATE_EMAIL) || $name === '' || $userMessage === '') {
             http_response_code(400);
             echo json_encode(['success' => false, 'error' => 'Invalid input data']);
+            exit;
+        }
+
+        // Längen begrenzen (gleiche Werte wie maxlength im HTML)
+        if (mb_strlen($name) > 100 || mb_strlen($email) > 254 || mb_strlen($userMessage) > 5000) {
+            http_response_code(400);
+            echo json_encode(['success' => false, 'error' => 'Input too long']);
             exit;
         }
 
