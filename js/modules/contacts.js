@@ -147,7 +147,7 @@ async function postContact(data) {
       name: data.name,
       email: data.email,
       message: data.message,
-      website: data.website ?? "", // honeypot, stays empty for humans
+      website: data.website ?? "",
     }),
   });
   const result = await response.json();

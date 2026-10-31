@@ -38,7 +38,7 @@
 }
 
 .footer-icon:hover {
-  filter: brightness(0) invert(1); /* macht das Icon weiß */
+  filter: brightness(0) invert(1);
 }
 .info .icon {
   vertical-align: middle;
@@ -89,7 +89,6 @@
   color: var(--secondary-color);
   transition: transform 0.4s ease-in-out;
 }
-/* Desktop: Wrapper ignorieren, ul und Sprachwahl sind direkte Flex-Kinder der Navigation */
 .mobile-nav {
   display: contents;
 }
@@ -107,7 +106,6 @@
   margin: 0;
 }
 
-/* Style the buttons that are used to open the tab content */
 .tab button {
   border: none;
   background: none;
@@ -121,25 +119,21 @@
   font-size: 24px;
 }
 
-/* Change background color of buttons on hover */
 .tab button:hover {
   background-color: var(--light-color);
 }
 
-/* Create an active/current tablink class */
 .tab button.active {
   color: #fff;
   background-color: var(--light-color);
 }
 
-/* Style the tab content */
 .tabcontent {
   background-color: var(--light-color);
   padding: 20px 0;
   display: none;
 }
 
-/* Only the active tab content is shown */
 .tabcontent.active {
   display: flex;
   gap: 80px;
@@ -164,7 +158,7 @@
   position: absolute;
   top: -3px;
   left: -38px;
-  width: 23px; /* Bildgröße */
+  width: 23px;
   height: 23px;
   background: url("../assets/img/bullet.svg") no-repeat center / contain;
 }
@@ -187,15 +181,15 @@
   box-sizing: border-box;
   width: 320px;
   max-width: 100%;
-  aspect-ratio: 1; /* Blob-SVG ist quadratisch */
-  padding: 64px; /* ca. 20% der Bubble-Breite; % würde sich aufs Elternelement beziehen */
+  aspect-ratio: 1;
+  padding: 64px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   background-image: url("../assets/icons/review.svg");
   background-repeat: no-repeat;
   background-position: center;
-  background-size: 100% 100%; /* Blob füllt immer die ganze Box */
+  background-size: 100% 100%;
   text-align: center;
 }
 
@@ -259,7 +253,6 @@ textarea {
   padding: 0;
   border: none;
   border-radius: 0;
-  /* Hover image is preloaded as a zero-sized layer so the first hover doesn't flicker */
   background:
     url("../assets/img/accept.svg") center / 22px 20px no-repeat,
     url("../assets/img/checkbox_hover.svg") center / 0 0 no-repeat;
@@ -274,7 +267,6 @@ textarea {
   border: 2px solid var(--error-color);
 }
 
-/* Checkbox is a background image, so swap it for the red variant instead of a border */
 .form__mail .btn-accept.is-invalid {
   border: none;
   background: url("../assets/img/false.svg") center / 22px 20px no-repeat;
@@ -357,7 +349,7 @@ textarea {
     padding: 20px;
     background-position: top center;
     width: 300px;
-    height: 223px; /* Höhe des Shapes bei 210px Breite (580x617) */
+    height: 223px;
     box-sizing: border-box;
     flex-direction: column;
     align-items: center;
@@ -365,14 +357,13 @@ textarea {
     gap: 12px;
     transition:
       opacity 0.3s,
-      display 0.3s allow-discrete; /* NEU: display wird mit animiert */
+      display 0.3s allow-discrete;
   }
 
   .mobile-nav ul {
     margin: 0;
   }
 
-  /* Kompakter, damit die Sprachwahl noch im Shape liegt */
   #lang-toggle {
     padding: 8px 16px;
     background-size: contain;

@@ -80,7 +80,6 @@ export const translations = {
     formError: "Etwas ist schiefgelaufen. Bitte versuche es später erneut.",
     footerLegal: "Impressum",
   },
-  // English Inputs warnings
   en: {
     nameRequired: "Your name is required.",
     emailRequired: "Your e-mail is required.",
@@ -89,7 +88,6 @@ export const translations = {
     privacyRequired: "Please accept the privacy policy.",
     formSuccess: "Thank you! Your message has been sent.",
     formError: "Something went wrong. Please try again later.",
-    // Legal page (the German original lives in pages/legal.html)
     legalTranslationNote:
       "This English version is provided for convenience only. In case of any discrepancy, the German version shall prevail.",
     legalImprintTitle: "Legal Notice",
