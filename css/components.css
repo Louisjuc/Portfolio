@@ -357,14 +357,29 @@ textarea {
     padding: 20px;
     background-position: top center;
     width: 300px;
-    height: 300px;
+    height: 223px; /* Höhe des Shapes bei 210px Breite (580x617) */
+    box-sizing: border-box;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
     transition:
       opacity 0.3s,
       display 0.3s allow-discrete; /* NEU: display wird mit animiert */
   }
 
+  .mobile-nav ul {
+    margin: 0;
+  }
+
+  /* Kompakter, damit die Sprachwahl noch im Shape liegt */
+  #lang-toggle {
+    padding: 8px 16px;
+    background-size: contain;
+  }
+
   .mobile-nav_toggle {
-    display: block;
+    display: flex;
     transform: translateX(0);
     opacity: 1;
   }
