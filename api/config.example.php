@@ -3,4 +3,4 @@
 // Vorlage für die lokale Konfiguration.
 // Kopieren nach config.php und eigene Adresse eintragen.
 
-$siteEmail = "deine@email.de";
+$siteEmail = "kontakt@deine-domain.de";

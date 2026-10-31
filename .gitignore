@@ -21,6 +21,7 @@ Desktop.ini
 .env.*
 !.env.example
 api/config.php
+.htaccess
 
 # Abhängigkeiten und Build-Ausgaben (falls später ein Build-Tool dazukommt)
 node_modules/

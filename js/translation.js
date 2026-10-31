@@ -9,8 +9,8 @@ export const translations = {
     whyHeading: "Warum ich?",
     locationIntro: "Ich lebe",
     locationDetails: "in München.",
-    remoteIntro: "Ich bin bereit,",
-    remoteDetails: "im Homeoffice zu arbeiten.",
+    remoteIntro: "Ich arbeite auch",
+    remoteDetails: "gerne Remote.",
     aboutBackground:
       "Durch meinen Hintergrund als Mediengestalter habe ich gelernt, in Layouts, Typografie und visueller Hierarchie zu denken. Meine Arbeit als Frontend-Entwickler ermöglicht es mir, diese Ideen im Code zum Leben zu erwecken.",
     aboutExperience:
@@ -21,7 +21,7 @@ export const translations = {
     skillsHeading: "Meine Skills",
     learningHeading: "Ich lerne gerade",
     learningDescription:
-      "Aus persönlichem Interesse beschäftige ich mich derzeit intensiv mit Vue.js, um meine Fähigkeiten zu erweitern. Durch seinen schlanken, komponentenbasierten Ansatz ist es eine hervorragende Ergänzung zu meiner Angular-Erfahrung und eine beliebte Wahl für Projekte jeder Größe.",
+      "Derzeit beschäftige ich mich intensiv mit Vue.js. Durch seinen schlanken, komponentenbasierten Ansatz ist es eine hervorragende Ergänzung zu meiner Angular-Erfahrung und eine beliebte Wahl für Projekte jeder Größe.",
     projectsHeading: "Meine Projekte",
     joinAboutHeading: "Über das Projekt",
     joinAbout:
@@ -54,7 +54,7 @@ export const translations = {
     reviewsHeading:
       "Brauchst du einen Teamplayer? Das sagen meine Kollegen über mich",
     reviewOneQuote:
-      "„Louis hat in Zusammenarbeit mit den Teammitgliedern Inhalte entwickelt, formatiert und ausgeliefert.“",
+      "„Louis hat in Zusammenarbeit mit den Teammitgliedern Inhalte entwickelt, formatiert und ausgeliefert. Er ist eine zuverlässige und freundliche Person.“",
     reviewTwoQuote:
       "„Louis ist eine zuverlässige und freundliche Person. Er arbeitet strukturiert und schreibt sauberen Code.“",
     reviewThreeQuote:
@@ -122,7 +122,7 @@ export const translations = {
     legalAuthorityList:
       "A list of the supervisory authorities (for the non-public sector) including their addresses can be found at:",
     legalHosting:
-      "This website is hosted by Hostinger International Ltd., 61 Lordou Vironos Street, 6023 Larnaca, Cyprus. The servers are located in the European Union. Hostinger processes the data generated when visiting the website on our behalf (Art. 28 GDPR). No data is transferred to a third country.",
+      "This website is hosted by Hetzner Online GmbH, Industriestr. 25, 91710 Gunzenhausen, Germany. The servers are located in Germany. Hetzner processes the data generated when visiting the website on our behalf (Art. 28 GDPR). No data is transferred to a third country.",
     legalActivitiesHeading: "Processing activities",
     legalVisitHeading:
       "Collection of general information when visiting our website",
@@ -139,10 +139,10 @@ export const translations = {
       "Processing is carried out in accordance with Art. 6(1)(f) GDPR on the basis of our legitimate interest in improving the stability and functionality of our website and in ensuring system security and detecting misuse.",
     legalRecipientsHeading: "Recipients",
     legalVisitRecipients:
-      "The recipient of the data is our hosting provider Hostinger (see section “Hosting”), which acts as a processor.",
+      "The recipient of the data is our hosting provider Hetzner (see section “Hosting”), which acts as a processor.",
     legalStorageHeading: "Storage period",
     legalVisitStorage:
-      "Data is stored in server log files in a form that allows the identification of the data subjects for a maximum of [number] days, unless a security-relevant event occurs (e.g. a DDoS attack).",
+      "Data is stored in server log files in a form that allows the identification of the data subjects for a maximum of 4 days, unless a security-relevant event occurs (e.g. a DDoS attack).",
     legalVisitStorageIncident:
       "In the event of such an incident, server log files are stored until the security-relevant event has been eliminated and fully investigated.",
     legalProvisionHeading: "Mandatory or required provision of data",
@@ -170,7 +170,7 @@ export const translations = {
     legalContactPrecontract:
       "If you contact us to request a quote, the data is processed in order to carry out pre-contractual measures (Art. 6(1)(b) GDPR).",
     legalContactRecipients:
-      "The contact form is processed via the server of our hosting provider Hostinger and delivered by e-mail to our mailbox at the e-mail provider WEB.DE (1&1 Mail & Media GmbH, Germany). Both act as processors or technical service providers.",
+      "The contact form is processed via the server of our hosting provider Hetzner Online GmbH (Germany) and delivered by e-mail to our mailbox hosted there. Hetzner acts as a processor or technical service provider.",
     legalContactStorage:
       "Data is deleted once the purpose no longer applies after your request has been handled, at the latest.",
     legalContactRetention:
