@@ -10,14 +10,24 @@ export function fitInfoSlider() {
   const slider = document.querySelector(".info-slider");
   if (!slider) return;
   slider.style.fontSize = "";
-  let max = measureInfos(slider);
+  const sliderWidth = shrinkToFit(slider, measureInfos(slider));
+  slider.style.setProperty("--slider-w", `${sliderWidth}px`);
+}
+
+/**
+ * Scales the font size of the slider down if the longest info is wider
+ * than the available space, then measures the infos again.
+ * @param {HTMLElement} slider - The `.info-slider` element.
+ * @param {number} textWidth - The width of the longest info in px.
+ * @returns {number} The width of the longest info after scaling in px.
+ */
+function shrinkToFit(slider, textWidth) {
   const available = getContentWidth(slider.parentElement);
-  if (max > available) {
-    const fontSize = parseFloat(getComputedStyle(slider).fontSize);
-    slider.style.fontSize = `${(fontSize * available) / max}px`;
-    max = measureInfos(slider);
-  }
-  slider.style.setProperty("--slider-w", `${max}px`);
+  if (textWidth <= available) return textWidth;
+  const fontSize = parseFloat(getComputedStyle(slider).fontSize);
+  const scale = available / textWidth;
+  slider.style.fontSize = `${fontSize * scale}px`;
+  return measureInfos(slider);
 }
 
 /**

@@ -1,4 +1,4 @@
-import { t } from "../translation.js";
+import { getTranslation } from "../translation.js";
 
 /** @type {string} Backend endpoint that sends the contact mail. */
 const ENDPOINT = "api/contact_form_mail.php";
@@ -73,9 +73,9 @@ function validateField(field) {
  * @returns {string}
  */
 function getErrorMessage(field) {
-  if (field.type === "checkbox") return t("privacyRequired");
-  if (field.validity.typeMismatch) return t("emailInvalid");
-  return t(`${field.name}Required`);
+  if (field.type === "checkbox") return getTranslation("privacyRequired");
+  if (field.validity.typeMismatch) return getTranslation("emailInvalid");
+  return getTranslation(`${field.name}Required`);
 }
 
 /**
@@ -124,9 +124,9 @@ async function sendForm(form) {
   try {
     await postContact(Object.fromEntries(new FormData(form)));
     form.reset();
-    showStatus(form, t("formSuccess"), "success");
+    showStatus(form, getTranslation("formSuccess"), "success");
   } catch {
-    showStatus(form, t("formError"), "error");
+    showStatus(form, getTranslation("formError"), "error");
   } finally {
     setButtonLoading(form, false);
     updateSubmitState(form);

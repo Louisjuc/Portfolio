@@ -68,14 +68,13 @@ export const translations = {
     messageLabel: "Deine Nachricht:",
     privacyConsentBefore: "Ich habe die",
     privacyPolicyLink: "Datenschutzerklärung",
-    privacyConsentAfter:
-      "gelesen und stimme der Verarbeitung meiner Daten gemäß den Angaben zu.",
+    privacyConsentAfter: " gelesen.",
     sendButton: "Senden",
     nameRequired: "Bitte gib deinen Namen ein.",
     emailRequired: "Bitte gib deine E-Mail-Adresse ein.",
     messageRequired: "Bitte gib eine Nachricht ein.",
     emailInvalid: "Bitte gib eine gültige E-Mail-Adresse ein.",
-    privacyRequired: "Bitte akzeptiere die Datenschutzerklärung.",
+    privacyRequired: "Bitte bestätige, dass du die Datenschutzerklärung gelesen hast.",
     formSuccess: "Danke! Deine Nachricht wurde gesendet.",
     formError: "Etwas ist schiefgelaufen. Bitte versuche es später erneut.",
     footerLegal: "Impressum",
@@ -85,7 +84,7 @@ export const translations = {
     emailRequired: "Your e-mail is required.",
     messageRequired: "Your message is required.",
     emailInvalid: "Please enter a valid e-mail address.",
-    privacyRequired: "Please accept the privacy policy.",
+    privacyRequired: "Please confirm that you have read the privacy policy.",
     formSuccess: "Thank you! Your message has been sent.",
     formError: "Something went wrong. Please try again later.",
     legalTranslationNote:
@@ -154,7 +153,6 @@ export const translations = {
       "Our website provides a contact form that can be used to get in touch electronically. If a user makes use of this option, the data entered in the form is transmitted to us and stored.",
     legalContactPurposeDataIntro:
       "In addition, the following data is stored at the time the message is sent:",
-    legalContactIp: "IP address of the requesting device",
     legalContactDate: "Date and time of the request",
     legalContactPurposeEmail:
       "You can also contact us via the e-mail address provided. In this case, the user's personal data transmitted with the e-mail is stored. This includes the date and time the e-mail was sent, the e-mail address, IP addresses and information about the servers involved in the e-mail communication.",
@@ -207,7 +205,7 @@ export const translations = {
  * @param {string} key - Key from {@link translations}.
  * @returns {string}
  */
-export function t(key) {
+export function getTranslation(key) {
   const lang =
     document.documentElement.lang in translations
       ? document.documentElement.lang
@@ -230,7 +228,7 @@ export function getInitialLang() {
 
 /**
  * Applies the language: updates all `[data-i18n]` texts, the `lang`
- * attribute, the URL and the toggle button label.
+ * attribute and the toggle button label.
  * Does not touch localStorage, see {@link toggleLanguage}.
  * The original English text from the HTML is stored on the first call
  * and used as a fallback when no translation exists.
@@ -243,7 +241,6 @@ export function setLanguage(lang) {
     el.textContent = translations[lang][el.dataset.i18n] ?? el.dataset.i18nEn;
   });
   document.documentElement.lang = lang;
-  history.replaceState(null, "", `?lang=${lang}`);
   document.getElementById("lang-toggle").textContent =
     lang === "de" ? "EN" : "DE";
   fitInfoSlider();

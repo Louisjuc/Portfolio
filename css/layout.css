@@ -227,16 +227,28 @@ h3 {
   position: relative;
   overflow: hidden;
   box-sizing: border-box;
-  border-right: 1.5px solid var(--secondary-color);
+  padding-right: 2px;
+  line-height: 1.1;
   white-space: nowrap;
   margin: 0 auto;
   --spacing: 0.15em;
   letter-spacing: var(--spacing);
-  animation:
-    info-cycle calc(var(--slot) * 2) infinite backwards,
-    blink-caret 0.75s step-end infinite;
-  animation-delay: calc(var(--i) * var(--slot)), 0s;
+  animation: info-cycle calc(var(--slot) * 2) infinite backwards;
+  animation-delay: calc(var(--i) * var(--slot));
 }
+
+.info::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 2px;
+  height: 1.2em;
+  background: #fff;
+  animation: blink-caret 0.75s step-end infinite;
+}
+
 @keyframes info-cycle {
   0% {
     width: 0;
@@ -248,22 +260,20 @@ h3 {
     transform: translateY(0);
     animation-timing-function: steps(40, end);
   }
-  25% {
+  25%,
+  48.1%,
+  100% {
     width: calc(var(--w) - var(--spacing));
-    transform: translateY(0);
   }
   44% {
-    width: calc(var(--w) - var(--spacing));
     transform: translateY(0);
     animation-timing-function: ease-in;
   }
   48% {
-    width: calc(var(--w) - var(--spacing));
     transform: translateY(-100%);
   }
   48.1%,
   100% {
-    width: calc(var(--w) - var(--spacing));
     transform: translateY(100%);
   }
 }
@@ -271,10 +281,10 @@ h3 {
 @keyframes blink-caret {
   from,
   to {
-    border-color: transparent;
+    opacity: 0;
   }
   50% {
-    border-color: var(--secondary-color);
+    opacity: 1;
   }
 }
 
@@ -427,10 +437,17 @@ footer a:hover {
 
   .flex-row,
   .policy,
-  .contact-flex,
-  .text-icon-flex {
+  .contact-flex {
     flex-direction: column;
     display: inherit;
+  }
+
+  .contact-flex > * + * {
+    margin-top: 24px;
+  }
+
+  .text-icon-flex a {
+    overflow-wrap: anywhere;
   }
 
   body {

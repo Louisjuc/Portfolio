@@ -10,6 +10,7 @@ initInfoSlider();
 
 /** @type {HTMLElement} Burger button that opens and closes the mobile navigation. */
 const burgerMenu = document.getElementById("burger-menu");
+
 /** @type {HTMLElement} Mobile navigation container. */
 const mobileNav = document.getElementById("mobile-nav");
 
@@ -22,11 +23,11 @@ function toggleMenu() {
 }
 
 /**
- * Closes the mobile navigation as soon as one of its links is clicked.
+ * Closes the mobile navigation as soon as one of its links or the language button is clicked.
  * @returns {void}
  */
-function closeAfterClick() {
-  mobileNav.querySelectorAll("a").forEach((link) => {
+export function closeAfterClick() {
+  mobileNav.querySelectorAll("a, #lang-toggle").forEach((link) => {
     link.addEventListener("click", () =>
       mobileNav.classList.remove("mobile-nav_toggle"),
     );
