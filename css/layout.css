@@ -219,7 +219,6 @@ h3 {
 
 .info-slider {
   display: grid;
-  overflow: hidden;
   --slot: 8s;
   width: var(--slider-w, 350px);
   max-width: 100%;
@@ -235,7 +234,7 @@ h3 {
   padding-right: 2px;
   line-height: 1.1;
   white-space: nowrap;
-  margin: 0 auto;
+  margin: 0;
   --spacing: 0.15em;
   letter-spacing: var(--spacing);
   animation: info-cycle calc(var(--slot) * 2) infinite backwards;
@@ -257,29 +256,33 @@ h3 {
 @keyframes info-cycle {
   0% {
     width: 0;
-    transform: translateY(100%);
+    opacity: 0;
     animation-timing-function: ease-out;
   }
   3% {
     width: 0;
-    transform: translateY(0);
-    animation-timing-function: steps(40, end);
+    opacity: 1;
+    animation-timing-function: linear;
   }
   25%,
-  48.1%,
   100% {
     width: calc(var(--w) - var(--spacing));
   }
-  44% {
+  46% {
+    opacity: 1;
     transform: translateY(0);
     animation-timing-function: ease-in;
   }
-  48% {
-    transform: translateY(-100%);
+  50% {
+    transform: translateY(-60%);
   }
-  48.1%,
+  50%,
   100% {
-    transform: translateY(100%);
+    opacity: 0;
+  }
+  50.1%,
+  100% {
+    transform: translateY(0);
   }
 }
 
@@ -364,11 +367,44 @@ footer a:hover {
 }
 
 @media (max-width: 1200px) {
+  .learning {
+    padding: 80px 100px;
+  }
 }
 
 @media (max-width: 900px) {
   section {
     margin: 60px 40px;
+  }
+
+  .navigation {
+    padding: 0 40px;
+  }
+
+  .navigation ul {
+    gap: 32px;
+  }
+
+  .hero {
+    grid-auto-columns: minmax(0, 1fr);
+  }
+
+  .hero-image {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  #skills .section-wrapper {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .learning {
+    padding: 80px 40px;
+  }
+
+  .flex-row {
+    flex-wrap: wrap;
   }
 }
 

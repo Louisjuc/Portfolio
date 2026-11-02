@@ -316,6 +316,11 @@ textarea {
   display: none;
 }
 
+#impressum a,
+#datenschutz a {
+  overflow-wrap: anywhere;
+}
+
 @media (max-width: 1200px) {
 }
 
