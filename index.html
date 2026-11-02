@@ -458,7 +458,13 @@
         <form class="form__mail">
           <label>
             <span data-i18n="nameLabel">Your Name:</span>
-            <input type="text" name="name" maxlength="100" required />
+            <input
+              type="text"
+              name="name"
+              maxlength="100"
+              pattern="\p{L}[\p{L} '\-]*"
+              required
+            />
           </label>
           <label>
             <span data-i18n="emailFieldLabel">Your E-mail:</span>

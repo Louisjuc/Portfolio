@@ -44,7 +44,8 @@ switch ($_SERVER['REQUEST_METHOD']) {
         }
 
         // Basic validation
-        if (!filter_var($email, FILTER_VALIDATE_EMAIL) || $name === '' || $userMessage === '') {
+        $validName = preg_match("/^\p{L}[\p{L} '-]*$/u", $name);
+        if (!filter_var($email, FILTER_VALIDATE_EMAIL) || !$validName || $userMessage === '') {
             http_response_code(400);
             echo json_encode(['success' => false, 'error' => 'Invalid input data']);
             exit;

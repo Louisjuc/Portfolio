@@ -7,6 +7,11 @@ html {
   scroll-padding-top: 40px;
 }
 
+html,
+body {
+  overflow-x: clip;
+}
+
 .m-0 {
   margin: 0;
 }
@@ -450,10 +455,6 @@ footer a:hover {
     overflow-wrap: anywhere;
   }
 
-  body {
-    overflow-x: clip;
-  }
-
   .navigation {
     box-shadow: none;
     clip-path: none;
@@ -487,6 +488,7 @@ footer a:hover {
   .hero-image_mobile {
     display: block;
     width: 350px;
+    max-width: 100%;
   }
 
   .burger-menu {

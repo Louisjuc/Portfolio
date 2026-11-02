@@ -75,6 +75,7 @@ function validateField(field) {
 function getErrorMessage(field) {
   if (field.type === "checkbox") return getTranslation("privacyRequired");
   if (field.validity.typeMismatch) return getTranslation("emailInvalid");
+  if (field.validity.patternMismatch) return getTranslation(`${field.name}Invalid`);
   return getTranslation(`${field.name}Required`);
 }
 

@@ -22,6 +22,7 @@
   color: #fff;
   background-image: url("../assets/img/lang_hover.svg");
   background-repeat: no-repeat;
+  cursor: pointer;
 }
 
 .icon {
@@ -72,6 +73,7 @@
 .btn-live:hover {
   background-color: var(--primary-color);
   color: var(--secondary-color);
+  cursor: pointer;
 }
 
 .icon-grid {
@@ -95,7 +97,6 @@
 
 .icon-item:hover {
   transform: scale(1.2);
-  cursor: pointer;
 }
 
 .icon-item img {
@@ -165,6 +166,7 @@
 
 .screenshot {
   width: 300px;
+  max-width: 100%;
   border-radius: 20px;
 }
 
@@ -289,9 +291,12 @@ textarea {
 }
 
 .form__error {
-  flex-basis: 100%;
   color: var(--error-color);
   font-size: 14px;
+}
+
+.form__mail .policy .form__error {
+  flex-basis: 100%;
 }
 
 .legal__title {
@@ -391,7 +396,7 @@ textarea {
   }
 }
 
-@media (hover: hover) and (pointer: fine) {
+@media (hover: none) and (pointer: coarse) {
   .icon-item:hover {
     transform: none;
   }
