@@ -1,7 +1,7 @@
-import { initTabs } from "./modules/tabs.js";
-import { initContactForm } from "./modules/contacts.js";
-import { initLanguage } from "./translation.js";
-import { initInfoSlider } from "./modules/infoSlider.js";
+import { initTabs } from "./js/modules/tabs.js";
+import { initContactForm } from "./js/modules/contacts.js";
+import { initLanguage } from "./js/translation.js";
+import { initInfoSlider } from "./js/modules/infoSlider.js";
 
 initTabs();
 initContactForm();

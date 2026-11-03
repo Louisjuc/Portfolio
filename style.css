@@ -117,7 +117,7 @@ footer {
 .hero-image {
   max-width: 500px;
   padding: 0 40px;
-  background-image: url("../assets/img/shape.svg");
+  background-image: url("./assets/img/shape.svg");
   background-position: top center;
   background-repeat: no-repeat;
   background-size: 500px;
@@ -125,7 +125,7 @@ footer {
 }
 
 .hero-image:hover {
-  background-image: url("../assets/img/shape_hover.svg");
+  background-image: url("./assets/img/shape_hover.svg");
 }
 
 .hero-image_mobile {
@@ -307,7 +307,7 @@ h3 {
 }
 
 .learning {
-  background-image: url("../assets/img/learning.svg");
+  background-image: url("./assets/img/learning.svg");
   text-align: center;
   background-repeat: no-repeat;
   background-position: top center;
@@ -373,42 +373,6 @@ footer a:hover {
 }
 
 @media (max-width: 900px) {
-  section {
-    margin: 60px 40px;
-  }
-
-  .navigation {
-    padding: 0 40px;
-  }
-
-  .navigation ul {
-    gap: 32px;
-  }
-
-  .hero {
-    grid-auto-columns: minmax(0, 1fr);
-  }
-
-  .hero-image {
-    width: 100%;
-    box-sizing: border-box;
-  }
-
-  #skills .section-wrapper {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .learning {
-    padding: 80px 40px;
-  }
-
-  .flex-row {
-    flex-wrap: wrap;
-  }
-}
-
-@media (max-width: 500px) {
   main {
     display: flex;
     flex-direction: column;
@@ -421,7 +385,7 @@ footer a:hover {
   }
 
   section {
-    margin: 0 16px;
+    margin: 0 40px;
   }
 
   .section-wrapper {
@@ -540,5 +504,11 @@ footer a:hover {
     display: block;
     background-color: #fff;
     border-radius: 2px;
+  }
+}
+
+@media (max-width: 500px) {
+  section {
+    margin: 0 16px;
   }
 }
