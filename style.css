@@ -7,11 +7,6 @@ html {
   scroll-padding-top: 40px;
 }
 
-html,
-body {
-  overflow-x: clip;
-}
-
 .m-0 {
   margin: 0;
 }
@@ -111,7 +106,6 @@ footer {
   text-align: center;
   height: calc(100svh - var(--nav-height));
   margin: 0;
-  overflow: hidden;
 }
 
 .hero-image {
@@ -308,13 +302,24 @@ h3 {
 
 .learning {
   background-image: url("./assets/img/learning.svg");
-  text-align: center;
   background-repeat: no-repeat;
-  background-position: top center;
-  width: fit-content;
-  height: 500px;
-  padding: 80px 200px;
-  background-size: 500px;
+  background-position: center;
+  background-size: 100% 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex: 0 1 480px;
+  min-width: 340px;
+  aspect-ratio: 1;
+  padding: 48px 0;
+  box-sizing: border-box;
+}
+
+.learning > * {
+  max-width: 70%;
+  overflow-wrap: break-word;
 }
 
 .contact-flex {
@@ -366,22 +371,108 @@ footer a:hover {
   color: #fff;
 }
 
-@media (max-width: 1200px) {
-  .learning {
-    padding: 80px 100px;
+/* Mobile nav and mobile header from tablet portrait (e.g. iPad Pro 1032x1376) */
+@media (max-width: 1100px) {
+  main {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .navigation {
+    order: -1;
+    box-shadow: none;
+    clip-path: none;
+    flex-direction: row;
+    background: var(--primary-color);
+    height: auto;
+    padding: 16px 20px;
+    gap: 16px;
+  }
+
+  .navigation ul {
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    padding: 0;
+  }
+
+  .navigation .logo,
+  .hero .logo {
+    display: none;
+  }
+
+  .logo_mobile {
+    display: block;
+    width: 60px;
+  }
+
+  .hero {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: inherit;
+    margin: 0;
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .hero-image {
+    display: none;
+  }
+
+  .hero-image_mobile {
+    display: block;
+    width: 350px;
+    max-width: 100%;
+  }
+
+  .burger-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    cursor: pointer;
+  }
+
+  .burger-menu span {
+    width: 30px;
+    height: 3px;
+    display: block;
+    background-color: #fff;
+    border-radius: 2px;
+  }
+}
+
+/* Tablet portrait layout tweaks */
+@media (min-width: 901px) and (max-width: 1100px) {
+  main {
+    gap: 80px;
+    padding-bottom: 80px;
+  }
+
+  section {
+    margin: 0 80px;
+  }
+
+  #why .section-wrapper {
+    flex-direction: column;
+  }
+
+  .why-text {
+    width: 100%;
+    max-width: 720px;
+  }
+
+  .flex-row {
+    flex-wrap: wrap;
+    gap: 40px;
   }
 }
 
 @media (max-width: 900px) {
   main {
-    display: flex;
-    flex-direction: column;
     gap: 40px;
     padding-bottom: 40px;
-  }
-
-  .navigation {
-    order: -1;
   }
 
   section {
@@ -401,32 +492,17 @@ footer a:hover {
     display: none;
   }
 
-  .logo_mobile {
-    display: block;
-    width: 60px;
-  }
-
-  .hero {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    height: inherit;
-    margin: 0;
-    overflow: hidden;
-    flex-direction: column;
-    gap: 40px;
-  }
-
   .learning {
     background-image: none;
-    text-align: center;
-    background-repeat: no-repeat;
-    background-position: top center;
-    width: inherit;
-    height: auto;
-    padding: 0px;
-    background-size: 500px;
+    flex: none;
+    width: 100%;
+    min-width: 0;
+    aspect-ratio: auto;
+    padding: 0;
+  }
+
+  .learning > * {
+    max-width: 100%;
   }
 
   #skills .section-wrapper {
@@ -455,55 +531,11 @@ footer a:hover {
     overflow-wrap: anywhere;
   }
 
-  .navigation {
-    box-shadow: none;
-    clip-path: none;
-  }
-
-  .navigation {
-    flex-direction: row;
-    background: var(--primary-color);
-    height: auto;
-    padding: 16px 20px;
-    gap: 16px;
-  }
-
-  .navigation ul {
-    flex-direction: column;
-    align-items: center;
-    gap: 12px;
-    padding: 0;
-  }
-
   footer {
     flex-direction: column;
     gap: 16px;
     padding: 20px;
     text-align: center;
-  }
-
-  .hero-image {
-    display: none;
-  }
-  .hero-image_mobile {
-    display: block;
-    width: 350px;
-    max-width: 100%;
-  }
-
-  .burger-menu {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-    cursor: pointer;
-  }
-
-  .burger-menu span {
-    width: 30px;
-    height: 3px;
-    display: block;
-    background-color: #fff;
-    border-radius: 2px;
   }
 }
 

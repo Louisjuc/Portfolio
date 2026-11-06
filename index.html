@@ -29,10 +29,7 @@
             <h1>Louis Juchem</h1>
             <p class="subtitle" data-i18n="heroSubtitle">Frontend Developer</p>
           </div>
-          <a href="#why"
-            ><button class="btn-down">
-              <img src="./assets/img/Arrow Up.svg" alt="Arrow Button" /></button
-          ></a>
+          <a href="#why" class="btn-down"><img src="./assets/img/Arrow Up.svg" alt="Scroll down" /></a>
         </div>
       </section>
       <nav class="navigation">
@@ -115,11 +112,7 @@
               use, because I know what designers intend and what developers
               need.
             </p>
-            <a href="#contact"
-              ><button class="btn-classic" data-i18n="letsTalk">
-                Let's Talk
-              </button></a
-            >
+            <a href="#contact" class="btn-classic" data-i18n="letsTalk">Let's Talk</a>
           </div>
         </div>
       </section>
@@ -230,9 +223,9 @@
           <div class="flex">
             <div class="techstack">
               <p data-i18n="technologiesHeading">Technologies</p>
-              <img src="./assets/icons/html.svg" alt="HTML" />
-              <img src="./assets/icons/css.svg" alt="CSS" />
-              <img src="./assets/icons/Javascript.svg" alt="Javascript" />
+              <img class="techstack-icon" src="./assets/icons/html.svg" alt="HTML" />
+              <img class="techstack-icon" src="./assets/icons/css.svg" alt="CSS" />
+              <img class="techstack-icon" src="./assets/icons/Javascript.svg" alt="Javascript" />
             </div>
             <img
               src="./assets/img/join_screenshot.jpg"
@@ -240,12 +233,8 @@
               alt="Join Screenshot"
             />
             <div class="button-group">
-              <a href="https://join.louis-juchem.de" target="_blank"
-                ><button class="btn-live">Live Test</button></a
-              >
-              <a href="https://github.com/Louisjuc/join-louis" target="_blank"
-                ><button class="btn-classic">Github</button></a
-              >
+              <a href="https://join.louis-juchem.de" target="_blank" class="btn-live">Live Test</a>
+              <a href="https://github.com/Louisjuc/join-louis" target="_blank" class="btn-classic">Github</a>
             </div>
           </div>
         </div>
@@ -289,9 +278,9 @@
           <div class="flex">
             <div class="techstack">
               <p data-i18n="technologiesHeading">Technologies</p>
-              <img src="./assets/icons/html.svg" alt="HTML" />
-              <img src="./assets/icons/css.svg" alt="CSS" />
-              <img src="./assets/icons/Javascript.svg" alt="Javascript" />
+              <img class="techstack-icon" src="./assets/icons/html.svg" alt="HTML" />
+              <img class="techstack-icon" src="./assets/icons/css.svg" alt="CSS" />
+              <img class="techstack-icon" src="./assets/icons/Javascript.svg" alt="Javascript" />
             </div>
             <img
               src="./assets/img/sharkie_screenshot.jpg"
@@ -299,12 +288,8 @@
               alt="Sharkie Screenshot"
             />
             <div class="button-group">
-              <a href="https://sharkie.louis-juchem.de" target="_blank"
-                ><button class="btn-live">Live Test</button></a
-              >
-              <a href="https://github.com/Louisjuc/Sharkie" target="_blank"
-                ><button class="btn-classic">Github</button></a
-              >
+              <a href="https://sharkie.louis-juchem.de" target="_blank" class="btn-live">Live Test</a>
+              <a href="https://github.com/Louisjuc/Sharkie" target="_blank" class="btn-classic">Github</a>
             </div>
           </div>
         </div>
@@ -349,9 +334,9 @@
           <div class="flex">
             <div class="techstack">
               <p data-i18n="technologiesHeading">Technologies</p>
-              <img src="./assets/icons/Angular.svg" alt="Angular" />
-              <img src="./assets/icons/Icons.svg" alt="Typescript" />
-              <img src="./assets/icons/css.svg" alt="CSS" />
+              <img class="techstack-icon" src="./assets/icons/Angular.svg" alt="Angular" />
+              <img class="techstack-icon" src="./assets/icons/Icons.svg" alt="Typescript" />
+              <img class="techstack-icon" src="./assets/icons/css.svg" alt="CSS" />
             </div>
             <img
               src="./assets/img/pollapp_screenshot.jpg"
@@ -359,12 +344,8 @@
               alt="PollApp Screenshot"
             />
             <div class="button-group">
-              <a href="https://pollapp.louis-juchem.de" target="_blank"
-                ><button class="btn-live">Live Test</button></a
-              >
-              <a href="https://github.com/Louisjuc/PollApp" target="_blank"
-                ><button class="btn-classic">Github</button></a
-              >
+              <a href="https://pollapp.louis-juchem.de" target="_blank" class="btn-live">Live Test</a>
+              <a href="https://github.com/Louisjuc/PollApp" target="_blank" class="btn-classic">Github</a>
             </div>
           </div>
         </div>
@@ -460,6 +441,7 @@
             <span data-i18n="nameLabel">Your Name:</span>
             <input
               type="text"
+              minlength="3"
               name="name"
               maxlength="100"
               pattern="\p{L}[\p{L} '\-]*"
@@ -472,7 +454,12 @@
           </label>
           <label class="form__message">
             <span data-i18n="messageLabel">Your Message:</span>
-            <textarea name="message" maxlength="5000" required></textarea>
+            <textarea
+              name="message"
+              minlength="10"
+              maxlength="5000"
+              required
+            ></textarea>
           </label>
           <div class="policy">
             <input

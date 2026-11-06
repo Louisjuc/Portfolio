@@ -2,16 +2,32 @@
  * Measures the text width of each info and sets it as the CSS variable `--w`,
  * so the typing effect stops exactly at the end of the text. The slider
  * itself gets the width of the longest info via `--slider-w`. If the longest
- * info is wider than the available space, the font size is scaled down so
- * the text fits without being cut off.
+ * info is wider than the available space, icon and text are stacked first.
+ * If it still does not fit, the font size is scaled down so the text is not
+ * cut off.
  * @returns {void}
  */
 export function fitInfoSlider() {
   const slider = document.querySelector(".info-slider");
   if (!slider) return;
   slider.style.fontSize = "";
-  const sliderWidth = shrinkToFit(slider, measureInfos(slider));
+  slider.classList.remove("is-stacked");
+  const textWidth = stackIfTooWide(slider, measureInfos(slider));
+  const sliderWidth = shrinkToFit(slider, textWidth);
   slider.style.setProperty("--slider-w", `${sliderWidth}px`);
+}
+
+/**
+ * Puts icon and text below each other if the longest info is wider than
+ * the available space, then measures the infos again.
+ * @param {HTMLElement} slider - The `.info-slider` element.
+ * @param {number} textWidth - The width of the longest info in px.
+ * @returns {number} The width of the longest info after stacking in px.
+ */
+function stackIfTooWide(slider, textWidth) {
+  if (textWidth <= getContentWidth(slider.parentElement)) return textWidth;
+  slider.classList.add("is-stacked");
+  return measureInfos(slider);
 }
 
 /**

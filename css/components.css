@@ -2,6 +2,17 @@ button {
   font-size: 18px;
 }
 
+.btn-down,
+.btn-classic,
+.btn-live {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  font-size: 18px;
+  line-height: normal;
+}
+
 .btn-down {
   background: none;
   border: 2px solid var(--secondary-color);
@@ -50,6 +61,17 @@ button {
   margin-right: 0.4rem;
 }
 
+.info-slider.is-stacked .icon {
+  display: block;
+  margin: 0 0 15px;
+}
+
+.info-slider.is-stacked .info::after {
+  top: auto;
+  bottom: 0;
+  transform: none;
+}
+
 .btn-classic {
   background: none;
   border: 2px solid var(--secondary-color);
@@ -79,7 +101,7 @@ button {
   gap: 20px;
 }
 
-.button-group button {
+.button-group a {
   white-space: nowrap;
 }
 
@@ -126,7 +148,7 @@ button {
   outline: none;
   cursor: pointer;
   padding: 20px;
-  margin-right: 20px;
+  margin-right: 1%;
   transition: 0.3s;
   color: var(--secondary-color);
   border-radius: 20px 20px 0px 0px;
@@ -198,8 +220,10 @@ button {
   text-align: center;
 }
 
-.techstack img {
-  width: 30px;
+.techstack-icon {
+  height: 30px;
+  width: auto;
+  vertical-align: middle;
   margin: 0 5px;
 }
 
@@ -269,6 +293,12 @@ textarea {
   box-sizing: border-box;
   resize: none;
   color: #fff;
+}
+
+.form__mail input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 1000px var(--primary-color) inset;
+  -webkit-text-fill-color: #fff;
+  caret-color: #fff;
 }
 
 .form__mail .btn-accept {
@@ -353,6 +383,10 @@ textarea {
 }
 
 @media (max-width: 1200px) {
+  .icon-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px 24px;
+  }
 }
 
 @media (max-width: 900px) {
@@ -377,6 +411,15 @@ textarea {
     font-size: 18px;
   }
 
+  .tabcontent.active {
+    display: flex;
+    gap: 20px;
+    padding: 40px 0;
+  }
+}
+
+/* Mobile nav from tablet portrait (e.g. iPad Pro 1032x1376) */
+@media (max-width: 1100px) {
   .mobile-nav {
     display: none;
     position: absolute;
@@ -421,12 +464,6 @@ textarea {
     .mobile-nav_toggle {
       opacity: 0;
     }
-  }
-
-  .tabcontent.active {
-    display: flex;
-    gap: 20px;
-    padding: 40px 0;
   }
 }
 

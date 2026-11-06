@@ -13,15 +13,42 @@ export function initContactForm() {
   const form = document.querySelector(".form__mail");
   if (!form) return;
 
-  updateSubmitState(form);
-  form.addEventListener("input", () => updateSubmitState(form));
-  form.addEventListener("change", () => updateSubmitState(form));
+  refreshForm(form);
+  form.addEventListener("input", () => refreshForm(form));
+  form.addEventListener("change", () => refreshForm(form));
   initFieldValidation(form);
 
   form.addEventListener("submit", (evt) => {
     evt.preventDefault();
     sendForm(form);
   });
+}
+
+/**
+ * Applies the trim rules to all fields and then updates the submit button,
+ * so the button state always reflects the trimmed values.
+ * @param {HTMLFormElement} form - The contact form.
+ * @returns {void}
+ */
+function refreshForm(form) {
+  form.querySelectorAll("[minlength]").forEach(checkTrimmedLength);
+  updateSubmitState(form);
+}
+
+/**
+ * Marks a field as invalid if its value without leading and trailing
+ * whitespace is shorter than its `minlength`. The browser's own `minlength`
+ * check counts spaces, so a message of only spaces would otherwise pass.
+ * Empty fields are left to the `required` check.
+ * @param {HTMLInputElement | HTMLTextAreaElement} field - Field with a `minlength`.
+ * @returns {void}
+ */
+function checkTrimmedLength(field) {
+  const length = field.value.trim().length;
+  const tooShort = field.value !== "" && length < field.minLength;
+  field.setCustomValidity(
+    tooShort ? getTranslation(`${field.name}TooShort`) : "",
+  );
 }
 
 /**
@@ -62,6 +89,7 @@ function watchField(field) {
  * @returns {void}
  */
 function validateField(field) {
+  if (field.minLength > 0) checkTrimmedLength(field);
   if (field.checkValidity()) clearFieldError(field);
   else showFieldError(field, getErrorMessage(field));
 }
@@ -74,9 +102,10 @@ function validateField(field) {
  */
 function getErrorMessage(field) {
   if (field.type === "checkbox") return getTranslation("privacyRequired");
+  if (field.value.trim() === "") return getTranslation(`${field.name}Required`);
   if (field.validity.typeMismatch) return getTranslation("emailInvalid");
   if (field.validity.patternMismatch) return getTranslation(`${field.name}Invalid`);
-  return getTranslation(`${field.name}Required`);
+  return getTranslation(`${field.name}TooShort`);
 }
 
 /**
@@ -130,7 +159,7 @@ async function sendForm(form) {
     showStatus(form, getTranslation("formError"), "error");
   } finally {
     setButtonLoading(form, false);
-    updateSubmitState(form);
+    refreshForm(form);
   }
 }
 
@@ -145,9 +174,9 @@ async function postContact(data) {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
-      name: data.name,
-      email: data.email,
-      message: data.message,
+      name: data.name.trim(),
+      email: data.email.trim(),
+      message: data.message.trim(),
       website: data.website ?? "",
     }),
   });

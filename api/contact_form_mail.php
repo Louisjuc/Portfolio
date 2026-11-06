@@ -51,6 +51,13 @@ switch ($_SERVER['REQUEST_METHOD']) {
             exit;
         }
 
+        // Mindestlängen (gleiche Werte wie minlength im HTML, nach trim)
+        if (mb_strlen($name) < 3 || mb_strlen($userMessage) < 10) {
+            http_response_code(400);
+            echo json_encode(['success' => false, 'error' => 'Input too short']);
+            exit;
+        }
+
         // Längen begrenzen (gleiche Werte wie maxlength im HTML)
         if (mb_strlen($name) > 100 || mb_strlen($email) > 254 || mb_strlen($userMessage) > 5000) {
             http_response_code(400);
