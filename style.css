@@ -104,7 +104,7 @@ footer {
   align-items: center;
   justify-content: center;
   text-align: center;
-  height: calc(100svh - var(--nav-height));
+  min-height: calc(100dvh - var(--nav-height));
   margin: 0;
 }
 
@@ -409,9 +409,9 @@ footer a:hover {
   .hero {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     text-align: center;
-    height: auto;
+    min-height: calc(100dvh - var(--nav-height));
     /* Cancels main's gap so the hero sits directly below the nav */
     margin: calc(var(--main-gap, 0px) * -1) 0 0;
     flex-direction: column;

@@ -348,7 +348,7 @@ textarea {
 .form__mail > label,
 .form__mail .policy {
   position: relative;
-  padding-bottom: 26px;
+  padding-bottom: 30px;
 }
 
 .form__error {
@@ -356,8 +356,8 @@ textarea {
   left: 0;
   bottom: 0;
   color: var(--error-color);
-  font-size: 14px;
-  line-height: 18px;
+  font-size: 18px;
+  line-height: 22px;
 }
 
 /* Status message sits next to the button; align-items: center keeps the
@@ -372,8 +372,8 @@ textarea {
 .form__status {
   flex: 1;
   margin: 0;
-  font-size: 14px;
-  line-height: 18px;
+  font-size: 18px;
+  line-height: 22px;
 }
 
 .form__status[data-type="error"] {
