@@ -210,20 +210,17 @@ function setButtonLoading(form, isLoading) {
 }
 
 /**
- * Shows a status message below the form, creating the element on first use.
+ * Shows a status message in the reserved `.form__status` element below the
+ * submit button. The element always exists in the markup, so showing or
+ * clearing the message never shifts the layout.
  * @param {HTMLFormElement} form - The form to show the message in.
  * @param {string} text - Message text; an empty string clears the message.
  * @param {"success" | "error"} [type] - Message type, stored in `data-type` for styling.
  * @returns {void}
  */
 function showStatus(form, text, type) {
-  let status = form.querySelector(".form__status");
-  if (!status) {
-    status = document.createElement("p");
-    status.className = "form__status";
-    status.setAttribute("role", "status");
-    form.append(status);
-  }
+  const status = form.querySelector(".form__status");
+  if (!status) return;
   status.textContent = text;
   status.dataset.type = type ?? "";
 }
