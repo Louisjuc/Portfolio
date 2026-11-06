@@ -360,17 +360,17 @@ textarea {
   line-height: 18px;
 }
 
-/* Reserves space below the button so the status message causes no layout shift */
+/* Status message sits next to the button; align-items: center keeps the
+   button from stretching, so showing the message causes no layout shift */
 .form__submit {
   grid-column: 1 / -1;
-  position: relative;
-  padding-bottom: 26px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
 }
 
 .form__status {
-  position: absolute;
-  left: 0;
-  bottom: 0;
+  flex: 1;
   margin: 0;
   font-size: 14px;
   line-height: 18px;
